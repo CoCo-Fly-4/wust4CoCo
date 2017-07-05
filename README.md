@@ -1,8 +1,3 @@
-2017年7月4日：    
-+  完善markdown语法  
-+  新添2017.7.5plan  
-+  新添整体功能需求  
-+  完善分工情况  
 
 # Welcome to [CoCo-Fly](https://github.com/CoCo-Fly-4/wust4CoCoFly)
 <br/>
