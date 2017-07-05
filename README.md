@@ -24,7 +24,7 @@
 ![](http://chuantu.biz/t5/126/1499217497x1899624972.jpg) | 冯可 | 男  | CoCo
 ![](http://chuantu.biz/t5/126/1499217838x1035452427.jpg) | 江佳俊 | 男  | Halfish
 ![](http://chuantu.biz/t5/126/1499218249x1035452427.jpg) | 王宇坤 | 女  | 小坤坤
-![](http://chuantu.biz/t5/126/1499217473x1035452427.jpg) | 杨欣睿 | 男  | TemptY
+![](http://chuantu.biz/t5/126/1499217473x1035452427.jpg) | 杨欣睿 | 男  | Uranus.R
 
 
 
