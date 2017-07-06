@@ -45,7 +45,7 @@ public class JsonServlet extends HttpServlet {
     	
     	response.setContentType("text/json");
     	
-    	sb.append("{\"firstName\": \"Brett\", \"lastName\": \"McLaughlin\"}");    	
+    	sb.append("Group: CoCo-Fly  |  Member: CoCo & jjj & kunkun & ruirui");    	
     	
 		response.getWriter().append(sb.toString());
 		//response.flushBuffer();
