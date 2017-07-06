@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>welcome.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+
+
+<script type="text/javascript">
+
+  /////////////////////////ajax///////////////
+  
+            function GetQueryString(name)
+            {
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		     }
+  
+            var username=GetQueryString("username");
+		    var xmlhttp;
+			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+			  xmlhttp=new XMLHttpRequest();
+			  }
+			else
+			  {// code for IE6, IE5
+			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+
+			xmlhttp.onreadystatechange=function()
+			  {
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+				  if(xmlhttp.responseText=="success")
+				    document.getElementById("info").innerHTML="<font size='6'>Login Successfully!</font>";
+				    else
+				    window.location.href="err.html";
+				}
+			  }	;
+			xmlhttp.open("GET","http://127.0.0.1:8080/wust4CoCo/servlet/WelValiServlet?username="+username,true);
+			xmlhttp.send();
+		    ////////////////////////////////////////////
+
+</script>
+  </head>
+ 
+  <body>
+    <div align="center" id="info"></div>
+  </body>
+</html>

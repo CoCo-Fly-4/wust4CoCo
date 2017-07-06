@@ -12,20 +12,25 @@ import javax.servlet.http.HttpServletResponse;
 import dao.UserDAO;
 
 public class LoginServlet extends HttpServlet{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 			String username=request.getParameter("username");
 			String password=request.getParameter("password");
 			String path = request.getContextPath();
 			
-			request.getSession().setAttribute("name1", username);
-			request.getSession().setAttribute("pass1", password);
+			request.getSession().setAttribute("username", username);
+			
 			UserDAO userdao=new UserDAO();
-			int oldid=userdao.findid(username, password);
-			request.getSession().setAttribute("oldid", oldid);
+		
+			
 			boolean flag=userdao.findUser(username, password);
 			if( flag ) {
-				if(!username.equals("admin")){
+				/*if(!username.equals("admin")){
 					
 				request.getSession().setAttribute("username", username);
 				response.sendRedirect(path+"/welcome.jsp");
@@ -37,13 +42,11 @@ public class LoginServlet extends HttpServlet{
 					request.getSession().setAttribute("username", username);
 					response.sendRedirect(path+"/servlet/AdminServlet");
 					}
-					
-			
+					*/
+			    String s="success";
+			    response.getWriter().append(s);
 				}
-				else{
-				request.getSession().setAttribute("err", "用户名或密码不正确!");
-				response.sendRedirect(path+"/login.jsp");
-				}
+				
 			} 
 
 }

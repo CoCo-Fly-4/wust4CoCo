@@ -6,7 +6,7 @@
 	<title>登录 - CoCo-Flyer Movie Factory </title>
 	<link rel="stylesheet" type="text/css" href="css/register-login.css">
 	
-	<script type="text/javascript" language="javascript">
+	<script type="text/javascript">
 	 function checkname(){  //失去焦点时执行的函数
 	  if(user.value==""){
 	   /* document.getElementById("show").style.visibility="visible";
@@ -37,6 +37,39 @@
 		else{
 		}
 	}
+	  
+	  function login(){
+		  var username=document.getElementById("user").value;
+		  var password=document.getElementById("password").value; 
+		  
+		  /////////////////////////ajax///////////////
+		    var xmlhttp;
+			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+			  xmlhttp=new XMLHttpRequest();
+			  }
+			else
+			  {// code for IE6, IE5
+			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+
+			xmlhttp.onreadystatechange=function()
+			  {
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+				  if(xmlhttp.responseText=="success")
+				  window.location.href="welcome.html?username="+username;
+				  else{
+					  var inner=document.getElementById("in");
+				    inner.innerHTML="<font color='green'>用户名密码不匹配</font>";
+				  }
+					  
+				}
+			  }	;
+			xmlhttp.open("POST","http://127.0.0.1:8080/wust4CoCo/servlet/LoginServlet?username="+username+"&password="+password,true);
+			xmlhttp.send();
+		    ////////////////////////////////////////////
+	  }
+	  
 </script>
 </head>
 <body>
@@ -69,7 +102,7 @@
 		</div>
 <span id="in"></span>
 		<div class="button">
-			<button type="submit" class="login-btn register-btn" id="button">登录</button>
+			<button type="submit" class="login-btn register-btn" id="button" onclick="login()">登录</button>
 		</div>
 
 		<div class="remember clearfix">
