@@ -8,11 +8,40 @@
     <meta name="content-type" content="text/html; charset=UTF-8">
     
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
-
+<script type="text/javascript" src="js/jquery.min.js"></script>
   </head>
   
   <body>
   <div align="center"><font color="red">404 Not Found</font></div>
     <div align="center"><h3><font color="red">Sorry , Access Without Permission </font></h3></div>
+    
+    <script>
+    
+    setTimeout(logout,2000); 
+    
+    function logout()
+    {
+    
+    var username="obj";
+    $.ajax({  
+	            type: "POST",  
+	            url: "http://127.0.0.1:8080/wust4CoCo/servlet/LogoutServlet?username="+username,  
+	            data: $('#form').serialize(),  
+	            success: function(data){    	
+	            	var obj = JSON.parse(data);
+	            	
+	                   if(obj[0].string=="success"&&obj[0].status==0)
+	                   {
+	                	   console.log("注销成功");
+	                	   window.location.href="index.html";
+	                   }
+	                 else
+	                	   console.log("注销失败");
+	                	 
+	            }  
+	        })  ;   
+    }
+    </script>
+    
   </body>
 </html>

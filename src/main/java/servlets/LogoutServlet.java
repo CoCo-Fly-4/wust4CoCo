@@ -13,12 +13,12 @@ import com.google.gson.Gson;
 
 import beans.JsonResult;
 
-public class WelValiServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
 	/**
-	 * The doGet method of the servlet. <br>
+	 * The doPost method of the servlet. <br>
 	 *
-	 * This method is called when a form has its tag value method equals to get.
+	 * This method is called when a form has its tag value method equals to post.
 	 * 
 	 * @param request the request send by the client to the server
 	 * @param response the response send by the server to the client
@@ -27,28 +27,23 @@ public class WelValiServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String username1=request.getParameter("username");
+
+		response.setCharacterEncoding("UTF-8");
+		String username=(String)request.getSession().getAttribute("username");
+		System.out.println("before session: "+username);
+		request.getSession().setAttribute("username", "null");
 		String username2=(String)request.getSession().getAttribute("username");
-		System.out.println("username1---:"+username1);
-		System.out.println("username2---:"+username2);
-        
-		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
+		System.out.println("after session: "+username2);
+        ArrayList<JsonResult> result=new ArrayList<JsonResult>();	
 		JsonResult jr=new JsonResult();
-		
-		if(username1.equals(username2))
-		{
-			jr.setString("success");
-			jr.setStatus(0);
-		}
-		else{
-			jr.setString("fail");
-	    	jr.setStatus(-1);
-		}
+		jr.setString("success");
+		jr.setStatus(0);
 		Gson gb = new Gson();
 		result.add(jr);
 		String info=gb.toJson(result);
 		response.getWriter().append(info);
-			
+		
+		
 	}
 
 }

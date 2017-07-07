@@ -35,8 +35,15 @@ public class LoginServlet extends HttpServlet{
 			
 			boolean flag=userdao.findUser(username, password);
 			if( flag ) {
+				if(username=="cocoadmin"&&password=="cocoadmin")
+				{
+					jr.setString("admin");
+				    jr.setStatus(0);
+				}
+				else{
 				jr.setString("success");
 				jr.setStatus(0);
+				}
 				request.getSession().setAttribute("username", username);
 				}
 			Gson gb = new Gson();

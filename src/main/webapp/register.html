@@ -40,9 +40,9 @@
 		            	
 		                   if(obj[0].string=="success"&&obj[0].status==0)
 		                	   
-		                 document.getElementById("myDiv").innerHTML="<font color='green'>Pass</font>";
+		                 document.getElementById("myDiv").innerHTML="<font color='#00DD00'>用户名可用</font>";
 		                 else
-		                	 document.getElementById("myDiv").innerHTML="<font color='red'>用户名不可用</font>";
+		                	 document.getElementById("myDiv").innerHTML="<font color='#FF0000'>用户名不可用</font>";
 		                	 
 		            }  
 		        })  ;
@@ -105,7 +105,7 @@
 			 success: function(data){    	
 			 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
 			 if(obj[0].string=="success"&&obj[0].status==0)
-				 window.location.href="welcome.html?username="+username;
+				 window.location.href="login.html";
 		    else
 				   document.getElementById("myDiv").innerHTML="<font color='green'>注册失败！</font>";
 	          }  
