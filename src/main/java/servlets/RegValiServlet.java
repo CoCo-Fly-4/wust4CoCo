@@ -2,13 +2,18 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.User;
+import com.google.gson.Gson;
+
+
+import beans.JsonResult;
+
 import dao.UserDAO;
 
 public class RegValiServlet extends HttpServlet {
@@ -55,27 +60,37 @@ public class RegValiServlet extends HttpServlet {
 		
 		response.setCharacterEncoding("UTF-8");
 		String username=request.getParameter("username");
-		String password=request.getParameter("password");
+		
 		System.out.println(username);
-		String path = request.getContextPath(); //获取请求路径
-		User user=new User();
-		user.setUsername(username);
-		user.setPassword(password);
+		
+		
 		UserDAO userdao=new UserDAO();
 		
-		String ss=new String();
-		StringBuilder sb = new StringBuilder();
+	
+		
+		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
+		
+		JsonResult jr=new JsonResult();
+	/*	StringBuilder sb = new StringBuilder();*/
 		if( userdao.isUsernameExists(username) ){	
-	    	ss="用户名不可用";   
+	    	
+	    	jr.setString("fail");
+	    	jr.setStatus(-1);
 	    	System.out.println("用户名不可用");
 		}
 		else if(username!=null)
 			
 		{
-			ss="Pass"; 
+			jr.setString("success");
+			jr.setStatus(0);
+			
+			
 			System.out.println("用户名可用");
 		}
-		response.getWriter().append(ss);
+		Gson gb = new Gson();
+		result.add(jr);
+		String info=gb.toJson(result);
+		response.getWriter().append(info);
 	}
 
 }

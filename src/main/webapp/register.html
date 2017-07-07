@@ -11,7 +11,7 @@
         var flaf=0;
 	 function checkname(){  //失去焦点时执行的函数
 		 var username=document.getElementById("user").value;
-	     var password=document.getElementById("password").value;
+	     
 	  if(user.value==""){
 	   var inner=document.getElementById("in");
 	   inner.innerHTML="<font color='red'>用户名为空</font>";
@@ -29,27 +29,30 @@
 	    else{
 	        var inner=document.getElementById("in");
 	        inner.innerHTML="";
-	        
-	        /////////////////////////ajax///////////////
-		    var xmlhttp;
-			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-			  xmlhttp=new XMLHttpRequest();
-			  }
-			else
-			  {// code for IE6, IE5
-			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-			  }
+/***************************************************************************/
+		$.ajax({  
+		            type: "POST",  
+		            url: "http://127.0.0.1:8080/wust4CoCo/servlet/RegValiServlet?username="+username,  
+		            data: $('#form').serialize(),  
+		            success: function(data){    
+		            	
+		            	var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
+		            	
+		                   if(obj[0].string=="success"&&obj[0].status==0)
+		                	   
+		                 document.getElementById("myDiv").innerHTML="<font color='green'>Pass</font>";
+		                 else
+		                	 document.getElementById("myDiv").innerHTML="<font color='green'>用户名不可用</font>";
+		                	 
+		            }  
+		        })  ;
 
-			xmlhttp.onreadystatechange=function()
-			  {
-			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-				{
-				document.getElementById("myDiv").innerHTML="<font color='green'>"+xmlhttp.responseText+"</font>";
-				}
-			  }	;
-			xmlhttp.open("POST","http://127.0.0.1:8080/wust4CoCo/servlet/RegValiServlet?username="+username+"&password="+password,true);
-			xmlhttp.send();
-		    ////////////////////////////////////////////
+
+/***************************************************************************/
+	        
+	        
+	        
+
 	        
 	    }
 	  }
@@ -96,47 +99,31 @@
  		
 		}	
 			
-			function register(){
+			
+			
+           function register(){
 				 var username=document.getElementById("user").value;
 			     var password=document.getElementById("password").value;
+
+				/***************************************************************************/
+				$.ajax({  
+				            type: "POST",  
+				            url: "http://127.0.0.1:8080/wust4CoCo/servlet/RegServlet?username="+username+"&password="+password,  
+				            data: $('#form').serialize(),  
+				            success: function(data){    	
+				            	var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
+				            	
+				                   if(obj[0].string=="success"&&obj[0].status==0)
+				                	   window.location.href="welcome.html?username="+username;
+				                 else
+				                	 document.getElementById("myDiv").innerHTML="<font color='green'>注册失败！</font>";
+				                	 
+				            }  
+				        })  ;
+
+		/***************************************************************************/	
 				
-				if((document.getElementById("in").innerHTML=="")&&(username!="")&&(password!="")&&(xmlhttp.responseText=="<font color='green'>success</font>"))
-		        {
-					 /////////////////////////ajax///////////////
-				    var xmlhttp;
-					if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-					  xmlhttp=new XMLHttpRequest();
-					  }
-					else
-					  {// code for IE6, IE5
-					  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-					  }
-
-					xmlhttp.onreadystatechange=function()
-					  {
-					  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-						{
-						  if(xmlhttp.responseText=="success")
-							window.location.href="welcome.html?username="+username;
-						  else{
-							  var inner=document.getElementById("in");
-				               inner.innerHTML="<font color='red'>注册失败</font>";
-						  }  					
-						}
-					  
-					  }	;
-					  
-					xmlhttp.open("POST","http://127.0.0.1:8080/wust4CoCo/servlet/RegServlet?username="+username+"&password="+password,true);
-					xmlhttp.send();
-
-				    ////////////////////////////////////////////
-					
-					
-		        }
-				else{
-					
-				}
-		        			
+				
 			}
  
 	 

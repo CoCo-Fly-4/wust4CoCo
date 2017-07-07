@@ -7,10 +7,17 @@
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title>Document</title>
+  
+  <script src='js/jquery.min.js' type="text/javascript"></script>
+  
  </head>
  <body>
   <script type="text/javascript">
     function ajax(){
+    
+    $.get("http://127.0.0.1:8080/wust4CoCo/servlet/JsonServlet")
+    
+    
 	var xmlhttp;
 	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 	  xmlhttp=new XMLHttpRequest();

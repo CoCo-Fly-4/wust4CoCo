@@ -40,34 +40,21 @@
 	  
 	  function login(){
 		  var username=document.getElementById("user").value;
-		  var password=document.getElementById("password").value; 
-		  
-		  /////////////////////////ajax///////////////
-		    var xmlhttp;
-			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-			  xmlhttp=new XMLHttpRequest();
-			  }
-			else
-			  {// code for IE6, IE5
-			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-			  }
-
-			xmlhttp.onreadystatechange=function()
-			  {
-			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-				{
-				  if(xmlhttp.responseText=="success")
-				  window.location.href="welcome.html?username="+username;
-				  else{
-					  var inner=document.getElementById("in");
-				    inner.innerHTML="<font color='green'>用户名密码不匹配</font>";
-				  }
-					  
-				}
-			  }	;
-			xmlhttp.open("POST","http://127.0.0.1:8080/wust4CoCo/servlet/LoginServlet?username="+username+"&password="+password,true);
-			xmlhttp.send();
-		    ////////////////////////////////////////////
+		  var password=document.getElementById("password").value;     
+			$.ajax({  
+	            type: "POST",  
+	            url: "http://127.0.0.1:8080/wust4CoCo/servlet/LoginServlet?username="+username+"&password="+password,  
+	            data: $('#form').serialize(),  
+	            success: function(data){    	
+	            	var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
+	            	
+	                   if(obj[0].string=="success"&&obj[0].status==0)
+	                	   window.location.href="welcome.html?username="+username;
+	                 else
+	                	 document.getElementById("in").innerHTML="<font color='red'>登录失败！</font>";
+	                	 
+	            }  
+	        })  ;      
 	  }
 	  
 </script>
