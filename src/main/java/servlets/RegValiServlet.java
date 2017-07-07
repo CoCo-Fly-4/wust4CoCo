@@ -51,7 +51,9 @@ public class RegValiServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+   
+		
+		response.setCharacterEncoding("UTF-8");
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
 		System.out.println(username);
@@ -64,7 +66,7 @@ public class RegValiServlet extends HttpServlet {
 		String ss=new String();
 		StringBuilder sb = new StringBuilder();
 		if( userdao.isUsernameExists(username) ){	
-	    	ss="Username Exist";   
+	    	ss="用户名不可用";   
 	    	System.out.println("用户名不可用");
 		}
 		else if(username!=null)

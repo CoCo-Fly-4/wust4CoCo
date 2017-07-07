@@ -100,7 +100,7 @@
 				 var username=document.getElementById("user").value;
 			     var password=document.getElementById("password").value;
 				
-				if((document.getElementById("in").innerHTML=="")&&(username!="")&&(password!=""))
+				if((document.getElementById("in").innerHTML=="")&&(username!="")&&(password!="")&&(xmlhttp.responseText=="<font color='green'>success</font>"))
 		        {
 					 /////////////////////////ajax///////////////
 				    var xmlhttp;
@@ -128,6 +128,7 @@
 					  
 					xmlhttp.open("POST","http://127.0.0.1:8080/wust4CoCo/servlet/RegServlet?username="+username+"&password="+password,true);
 					xmlhttp.send();
+
 				    ////////////////////////////////////////////
 					
 					
