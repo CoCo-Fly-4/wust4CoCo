@@ -49,15 +49,9 @@
 
 
 /***************************************************************************/
-	        
-	        
-	        
-
-	        
+ 
 	    }
 	  }
-	
-	 
     }
 
 	  function checkpsw(){
@@ -98,35 +92,27 @@
  		}
  		
 		}	
-			
-			
-			
+		
            function register(){
 				 var username=document.getElementById("user").value;
 			     var password=document.getElementById("password").value;
 
-				/***************************************************************************/
-				$.ajax({  
-				            type: "POST",  
-				            url: "http://127.0.0.1:8080/wust4CoCo/servlet/RegServlet?username="+username+"&password="+password,  
-				            data: $('#form').serialize(),  
-				            success: function(data){    	
-				            	var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
-				            	
-				                   if(obj[0].string=="success"&&obj[0].status==0)
-				                	   window.location.href="welcome.html?username="+username;
-				                 else
-				                	 document.getElementById("myDiv").innerHTML="<font color='green'>注册失败！</font>";
-				                	 
-				            }  
-				        })  ;
+/***************************************************************************/
+		$.ajax({  
+			 type: "POST",  
+			 url: "http://127.0.0.1:8080/wust4CoCo/servlet/RegServlet?username="+username+"&password="+password,  
+			 data: $('#form').serialize(),  
+			 success: function(data){    	
+			 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
+			 if(obj[0].string=="success"&&obj[0].status==0)
+				 window.location.href="welcome.html?username="+username;
+		    else
+				   document.getElementById("myDiv").innerHTML="<font color='green'>注册失败！</font>";
+	          }  
+	  })  ;
 
-		/***************************************************************************/	
-				
-				
+/***************************************************************************/		
 			}
- 
-	 
 </script>
 	
 </head>
@@ -166,8 +152,8 @@
 		</div>
 		
 <!-- <input type="text" id="show"  style="color:red;visibility:hidden;"  /> -->
-<span id="in"></span>
-<div id=myDiv></div>
+<div id="in" align="center"></div>
+<div id=myDiv align="center"></div>
 		<div class="button">
 	
 			<button type="submit" class="login-btn register-btn" id="button" onclick="register()">注册</button>

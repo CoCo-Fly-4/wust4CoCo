@@ -6,6 +6,7 @@
 			text-decoration: none;
 		}
 		html,body{
+		 background: url('');
 			height: 100%;
 			width: 100%;
 			font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
@@ -24,7 +25,7 @@
 			width: 100%;
   			height: 100%;
   			background-color: #F7FAFC;
-  			background-image: url('');
+  			background-image: url('img.jpg');
   			background-size: cover;
   			background-position: 50% 50%;
   			background-repeat: no-repeat;
@@ -35,7 +36,7 @@
   			bottom: 0;
   			z-index: 1;
 		}
-		.cent-box{
+		.cent-box{		   
 		    float:left;
 			width: 300px;
 			height: 440px;
@@ -75,8 +76,12 @@
     		font-weight: 400;
     		font-size: 18px;
     		line-height: 1;
+    		color:#fef2e7;
 		}
 		.clearfix:before{
+		     border: 1px solid #d5d5d5;
+		    box-shadow: none;
+    		background: rgba(255,255,255,0.5);
 			content: '';
 			display: table;
 		}
@@ -162,7 +167,7 @@
 		}
 		#button{
 			width: 100%;
-			background: #0f88eb;
+			background:#ACD6FF;
     		box-shadow: none;
     		border: 0;
     		border-radius: 3px;
