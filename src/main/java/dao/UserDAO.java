@@ -10,7 +10,7 @@ public class UserDAO {
 	public static final String DBURL = "jdbc:mysql://localhost:3306/coco";
 	public static final String DBURL2 = "jdbc:mysql://localhost:3306/mobiledb";
 	public static final String DBUSER = "root";
-	public static final String DBPASS = "admin";
+	public static final String DBPASS = "123456";
 
 	private Connection conn = null;
 	private PreparedStatement pStat = null;
