@@ -47,11 +47,11 @@
 	            data: $('#form').serialize(),  
 	            success: function(data){    	
 	            	var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
-	            	
+	            	console.log(obj[0].string);
 	                   if(obj[0].string=="success"&&obj[0].status==0)
 	                	   window.location.href="index.html?username="+username;
 	                   else if(obj[0].string=="admin"&&obj[0].status==0)
-	                	   window.location.href="admin.html?username="+username;
+	                	   window.location.href="admincoco.html?username="+username;
 	                 else
 	                	 document.getElementById("in").innerHTML="<font color='red'>登录失败！</font>";
 	                	 

@@ -4,8 +4,14 @@ public class JsonResult{
 	
 	private String string ;
 	private int status;
+	private String Pdata;
 	
-	
+	public String getPdata() {
+		return Pdata;
+	}
+	public void setPdata(String pdata) {
+		Pdata = pdata;
+	}
 	public String getString() {
 		return string;
 	}

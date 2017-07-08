@@ -16,6 +16,11 @@ import beans.JsonResult;
 public class WelValiServlet extends HttpServlet {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * The doGet method of the servlet. <br>
 	 *
 	 * This method is called when a form has its tag value method equals to get.
@@ -35,15 +40,44 @@ public class WelValiServlet extends HttpServlet {
 		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
 		JsonResult jr=new JsonResult();
 		
-		if(username1.equals(username2))
+		if(username1.equals("null")&&username2.equals("null"))
 		{
-			jr.setString("success");
+			jr.setString("index");
 			jr.setStatus(0);
 		}
-		else{
+		
+		if(!username1.equals("null")&&username2.equals("null"))
+		{
 			jr.setString("fail");
-	    	jr.setStatus(-1);
+			jr.setStatus(-1);
 		}
+		
+		if(username1.equals("null")&&!username2.equals("null"))
+		{
+			jr.setPdata(username2);
+			jr.setString("index?");
+			jr.setStatus(0);
+			System.out.println("进入情况3");
+			System.out.println("进入情况3:"+username2);
+			
+		}
+		
+		if(!username1.equals("null")&&!username2.equals("null"))
+		{
+			if(username1.equals(username2))
+			{
+			jr.setString("index");
+			jr.setStatus(0);
+			}
+			else
+			{
+			jr.setString("fail");
+		    jr.setStatus(-1);
+			}
+		}
+		
+		
+		
 		Gson gb = new Gson();
 		result.add(jr);
 		String info=gb.toJson(result);

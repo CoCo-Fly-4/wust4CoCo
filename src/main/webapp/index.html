@@ -14,6 +14,7 @@
 
 ////////////////////////       权限验证      / ////////////////////////
              var username=GetQueryString("username");
+             
              console.log(username);
              $.ajax({  
 	            type: "POST",  
@@ -21,10 +22,15 @@
 	            data: $('#form').serialize(),  
 	            success: function(data){    	
 	            	var obj = JSON.parse(data);
-	            	
-	                   if(obj[0].string=="success"&&obj[0].status==0)
-	                	   console.log("权限验证通过");
-	                 else
+	            	console.log("返回字符："+obj[0].string);
+	            	console.log("返回状态："+obj[0].status);
+	            	console.log("返回数据："+obj[0].Pdata);
+	                   if(obj[0].string=="index"&&obj[0].status==0)
+	                	   console.log("index---");
+	                  else if(obj[0].string=="index?"&&obj[0].status==0)
+	                      window.location.href="index.html?username="+obj[0].Pdata;
+	             
+	                    else
 	                	   window.location.href="err.html";
 	                	 
 	            }  

@@ -26,7 +26,9 @@ public class LoginServlet extends HttpServlet{
 			String username=request.getParameter("username");
 			String password=request.getParameter("password");
 			String path = request.getContextPath();
-			
+			System.out.println("进入LoginServlet");
+			System.out.println("in loginservlet:");
+			System.out.println("username="+username);
 			request.getSession().setAttribute("username", username);
 			
 			UserDAO userdao=new UserDAO();
@@ -35,14 +37,16 @@ public class LoginServlet extends HttpServlet{
 			
 			boolean flag=userdao.findUser(username, password);
 			if( flag ) {
-				if(username=="cocoadmin"&&password=="cocoadmin")
+				if(username.equals("cocoadmin")&&password.equals("cocoadmin"))
 				{
 					jr.setString("admin");
 				    jr.setStatus(0);
+				    System.out.println("jr=admin");
 				}
 				else{
 				jr.setString("success");
 				jr.setStatus(0);
+				System.out.println("jr=success");
 				}
 				request.getSession().setAttribute("username", username);
 				}
