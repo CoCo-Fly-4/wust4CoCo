@@ -54,18 +54,29 @@ public class WelValiServlet extends HttpServlet {
 		
 		if(username1.equals("null")&&!username2.equals("null"))
 		{
+			if(username2.equals("cocoadmin"))
+			{
+				jr.setString("admin");
+				jr.setStatus(0);
+			}
+			else{
 			jr.setPdata(username2);
 			jr.setString("index?");
 			jr.setStatus(0);
 			System.out.println("进入情况3");
 			System.out.println("进入情况3:"+username2);
-			
+			}
 		}
 		
 		if(!username1.equals("null")&&!username2.equals("null"))
 		{
 			if(username1.equals(username2))
-			{
+				if(username2.equals("cocoadmin"))
+				{
+					jr.setString("admin");
+					jr.setStatus(0);
+				}
+				else{
 			jr.setString("index");
 			jr.setStatus(0);
 			}

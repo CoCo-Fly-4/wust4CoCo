@@ -30,64 +30,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+
+  <script type="text/javascript" src="js/authorize.js"></script>
+  
 </head>
 
 <script>
-
+     var username=GetQueryString("username");
+     autho2();
 ////////////////////////       权限验证      / ////////////////////////
-             var username=GetQueryString("username");
-             console.log(username);
-             $.ajax({  
-	            type: "POST",  
-	            url: "http://127.0.0.1:8080/wust4CoCo/servlet/WelValiServlet?username="+username,  
-	            data: $('#form').serialize(),  
-	            success: function(data){    	
-	            	var obj = JSON.parse(data);
-	            	
-	                   if(obj[0].string=="success"&&obj[0].status==0)
-	                	   console.log("权限验证通过");
-	                 else
-	                 {    
-	                       logout();      //注销清空session
-	                	   window.location.href="err.html";
-	                 }
-	                	 
-	            }  
-	        })  ;      
-
-/////////////////////////////////////////////////////////////
-
-
- function GetQueryString(name)
-            {
-		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-		     var r = window.location.search.substr(1).match(reg);
-		     if(r!=null)return  unescape(r[2]); return null;
-		     }
-		     
-   function logout()
-   {
-      $.ajax({  
-	            type: "POST",  
-	            url: "http://127.0.0.1:8080/wust4CoCo/servlet/LogoutServlet?username="+username,  
-	            data: $('#form').serialize(),  
-	            success: function(data){    	
-	            	var obj = JSON.parse(data);
-	            	
-	                   if(obj[0].string=="success"&&obj[0].status==0)
-	                   {
-	                	   console.log("注销成功");
-	                	   window.location.href="index.html";
-	                   }
-	                 else
-	                	   console.log("注销失败");
-	                	 
-	            }  
-	        })  ;      
- 
-        }	     
-		     
-		     
+   
  </script>
  
 <body class="hold-transition  sidebar-mini" background="dist/img/img1.jpg">
