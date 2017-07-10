@@ -99,18 +99,15 @@ body {
 }
 .content-wrapper,
 .right-side {
-  border:1px solid #000;
-  min-height: 100%;
+  height: 100%;
   background: url('../img/img1.jpg') repeat fixed;
- /* background-color: transparent;   */
   z-index: 800;
 }
 
 .main-footer {
   background: transparent;
-  padding: 15px;
-  color:#CC00CC;
-  border-top: 1px solid #d2d6de;
+  padding-top:150px;
+  color:#fe2e6c;
 }
 /* Fixed layout */
 .fixed .main-header,

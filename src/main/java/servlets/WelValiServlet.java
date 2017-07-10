@@ -44,12 +44,14 @@ public class WelValiServlet extends HttpServlet {
 		{
 			jr.setString("index");
 			jr.setStatus(0);
+			System.out.println("1~");
 		}
 		
 		if(!username1.equals("null")&&username2.equals("null"))
 		{
 			jr.setString("fail");
 			jr.setStatus(-1);
+			System.out.println("2~");
 		}
 		
 		if(username1.equals("null")&&!username2.equals("null"))
@@ -58,6 +60,7 @@ public class WelValiServlet extends HttpServlet {
 			{
 				jr.setString("admin");
 				jr.setStatus(0);
+				System.out.println("3~");
 			}
 			else{
 			jr.setPdata(username2);
@@ -65,6 +68,7 @@ public class WelValiServlet extends HttpServlet {
 			jr.setStatus(0);
 			System.out.println("进入情况3");
 			System.out.println("进入情况3:"+username2);
+			System.out.println("4~");
 			}
 		}
 		
@@ -75,15 +79,18 @@ public class WelValiServlet extends HttpServlet {
 				{
 					jr.setString("admin");
 					jr.setStatus(0);
+					System.out.println("5~");
 				}
 				else{
 			jr.setString("index");
 			jr.setStatus(0);
+			System.out.println("6~");
 			}
 			else
 			{
 			jr.setString("fail");
 		    jr.setStatus(-1);
+		    System.out.println("7~");
 			}
 		}
 		

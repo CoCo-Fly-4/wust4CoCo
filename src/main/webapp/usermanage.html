@@ -34,7 +34,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="text/javascript" src="js/jquery.min.js"></script>
 
   <script type="text/javascript" src="js/authorize.js"></script>
-  
+  <style type="text/css">
+  	.menu{
+  		float:left;
+  		width:20%;
+  		text-align:center;
+  		margin-top:50px;
+  		margin-left:30px;
+  		margin-bottom:50px;
+  	}
+  	.ll{
+  		border: 2px solid #fff;
+  	    box-shadow: none;
+    	background: rgba(255,255,255,0.5);
+  		margin-top:40px;
+  		width:150px;
+  		height:50px;
+  		text-align:center;
+  		list-style:none;
+  		padding-top:11px;
+  		
+  	}
+  	.ss{
+  		color:#fe2e6c;
+  		font-size:20px;
+  		font-family:Comic Sans MS;
+  	}
+  	.ll:hover{
+		background: #fff;
+	}
+	.photo{
+		float:right;
+		border: 1px solid #000;
+  	    box-shadow: none;
+    	background: rgba(255,255,255,0.5);
+    	margin-top:80px;
+    	margin-right:100px;
+    	width:700px;
+    	height:340px;
+	}
+  </style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -305,10 +344,17 @@ var username=GetQueryString("username");
     <section class="content">
 
       <!-- Your Page Content Here -->
-    
-    这是 用户管理 页面
-
-
+    	<div class="menu">
+    		<ul>
+    			<li class="ll"><span class="ss">Home</span></li>
+    			<li class="ll"><span class="ss">Add User</span></li>
+    			<li class="ll"><span class="ss">Update User</span></li>
+    			<li class="ll"><span class="ss">Delete User</span></li>
+    		</ul>
+    	</div>  
+    	<div class="photo">
+    		
+    	</div>
 
 
     </section>
@@ -316,15 +362,6 @@ var username=GetQueryString("username");
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2017 <a href="#">CoCo-Fly</a>.</strong> All rights reserved.
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

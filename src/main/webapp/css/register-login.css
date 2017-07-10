@@ -79,7 +79,7 @@
     		color:#fef2e7;
 		}
 		.clearfix:before{
-		     border: 1px solid #d5d5d5;
+		    border: 1px solid #d5d5d5;
 		    box-shadow: none;
     		background: rgba(255,255,255,0.5);
 			content: '';
