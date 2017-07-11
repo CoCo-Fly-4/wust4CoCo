@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <![endif]-->
   
     <script type="text/javascript" src="js/jquery.min.js"></script>
-
+<script type="text/javascript" src="js/sort.js"></script>
   <script type="text/javascript" src="js/authorize.js"></script>
   <style type="text/css">
   	.menu{
@@ -56,6 +56,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   		
   	}
   	.ss{
+  	    width:150px;
+  		height:50px;
   		color:#fe2e6c;
   		font-size:20px;
   		font-family:Comic Sans MS;
@@ -73,28 +75,117 @@ scratch. This page gets rid of all links and provides the needed markup only.
     	width:700px;
     	height:340px;
 	}
+	
+	.all_{
+	color:#FF0080;
+	
+	width:40px;
+	height:20px;
+	font-size:15px;
+	}
+	.word{
+	color:#fe2e6c;
+	font-family:Comic Sans MS;
+	font-size:15px;
+	margin-left:9px;
+	}
+	.table_order{
+	width:700px;
+	background: rgba(255,255,255,0.5);
+	margin-top:30px;
+	}
+	.table_order tr{
+	height:30px;
+	}
+	.table_order td{
+   text-align:center;
+   font-size:16px;
+   width:233px;
+    }
+    .table_order th{
+   text-align:center;
+   font-size:20px;
+   background: rgba(255,255,255,0.1);
+    }
+    .page_button{
+    bottom:168px;
+    position:absolute;
+    margin-left:270px;
+    }
+   #new_{
+   padding-left:300px;
+   font-size:25px;
+   color:#fe2e6c;
+   }
+   #add_new{
+   margin-top:40px;
+   text-align:right;
+   margin-right:260px;
+   }
+   #add_sure{
+   width:75px;
+   height:30px;
+   margin-top:45px;
+   margin-left:300px;
+   background-color:#ffbb55;
+   background: rgba(255,255,255,0.5);
+   font-size:18px;
+   }
+  
+  .upd{
+		margin-left:300px;
+		color:#fe2e6c;
+		text-align:center;
+		font-size:25px;
+		font-family:Ó×Ô²;	
+	}
+	.headline{
+	    
+	    margin-top:15px;
+		text-align:center;
+		font-family:Ó×Ô²;	
+	}
+	.xixi{
+  		font-size:15px;
+  		font-family:Comic Sans MS;
+	}
+	.old{
+		margin-top:30px;
+		margin-left:80px;
+		float:left;
+	}
+	.new{
+		margin-top:30px;
+		margin-right:80px;
+		float:right;
+	}
+	.mes{
+		margin-left:100px;
+	}
+	.le{
+		text-align:right;
+		marign-right:10px;
+	}
+	.ri{
+		text-align:left;
+		marign-left:10px;
+	}
+	#tab_ tr{
+		width:40px;
+		height:40px;
+	}
+	.btm{
+		bottom:170px;
+		position:absolute;
+		background-color:#ffbb55;
+		background:rgba(255,255,255,0.5);
+		width:75px;
+		height:30px;
+		font-size:18px;
+		font-family:Ó×Ô²;
+	}
   </style>
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 
 <script>
 var username=GetQueryString("username");
@@ -346,15 +437,153 @@ var username=GetQueryString("username");
       <!-- Your Page Content Here -->
     	<div class="menu">
     		<ul>
-    			<li class="ll"><span class="ss">Home</span></li>
-    			<li class="ll"><span class="ss">Add User</span></li>
-    			<li class="ll"><span class="ss">Update User</span></li>
-    			<li class="ll"><span class="ss">Delete User</span></li>
+    			<li class="ll"><a href="javascript:changesheet(1)"><span class="ss">Home</span></a></li>
+    			<li class="ll"><a href="javascript:changesheet(2)"><span class="ss">Add User</span></a></li>
+    			<li class="ll"><a href="javascript:changesheet(3)"><span class="ss">Update Us</span></a></li>
+    			<li class="ll"><a href="javascript:changesheet(4)"><span class="ss">Delete User</span></a></li>
     		</ul>
     	</div>  
-    	<div class="photo">
+    	<div class="photo"  id="sheet1">
+    		<br>
     		
+    		<div class="order">
+    		<span class="all_">全部用户</span>
+    		<span class="word"><a href="javascript:wsort(1)">A</a></span>
+    		<span class="word"><a href="javascript:wsort(2)">B</a></span>
+    		<span class="word"><a href="javascript:wsort(3)">C</a></span>
+    		<span class="word"><a href="javascript:wsort(4)">D</a></span>
+    		<span class="word"><a href="javascript:wsort(5)">E</a></span>
+    		<span class="word"><a href="javascript:wsort(6)">F</a></span>
+    		<span class="word"><a href="javascript:wsort(7)">G</a></span>
+    		<span class="word"><a href="javascript:wsort(8)">H</a></span>
+    	    <span class="word"><a href="javascript:wsort(9)">I</a></span>
+    		<span class="word"><a href="javascript:wsort(10)">J</a></span>
+    		<span class="word"><a href="javascript:wsort(11)">K</a></span>
+    		<span class="word"><a href="javascript:wsort(12)">L</a></span>
+    		<span class="word"><a href="javascript:wsort(13)">M</a></span>
+    		<span class="word"><a href="javascript:wsort(14)">N</a></span>
+    		<span class="word"><a href="javascript:wsort(15)">O</a></span>
+    		<span class="word"><a href="javascript:wsort(16)">P</a></span>
+    		<span class="word"><a href="javascript:wsort(17)">Q</a></span>
+    		<span class="word"><a href="javascript:wsort(18)">R</a></span>
+    		<span class="word"><a href="javascript:wsort(19)">S</a></span>
+    		<span class="word"><a href="javascript:wsort(20)">T</a></span>
+    		<span class="word"><a href="javascript:wsort(21)">U</a></span>
+    		<span class="word"><a href="javascript:wsort(22)">V</a></span>
+    		<span class="word"><a href="javascript:wsort(23)">W</a></span>
+    		<span class="word"><a href="javascript:wsort(24)">X</a></span>
+    		<span class="word"><a href="javascript:wsort(25)">Y</a></span>
+    		<span class="word"><a href="javascript:wsort(26)">Z</a></span>
     	</div>
+    	<div class="order_result" id="order_result">
+    	<table class="table_order">
+    	<tr><th>UserId</th><th>Username</th><th>Paaword</th></tr>
+    	<tr><td>1</td><td>cococo</td><td>cococo</td></tr>
+    	<tr><td>2</td><td>wangyukun</td><td>kkkkkk</td></tr>
+    	<tr><td>2</td><td>uranus</td><td>rrrrrrrr</td></tr>
+    	<tr><td>2</td><td>jjjjjj</td><td>jjjjjj</td></tr>
+    	<tr><td>2</td><td>angusgreen</td><td>bulande</td></tr>
+    	
+    	</table>
+    	</div>
+    	<div id="sto_num" style="display:none;"></div><div id="page_num" style="display:none;"></div>
+    	<div class="page_button">
+    	<span class="last_page" id="last_page"><a href="javascript:page(-1)">上一页</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+    	&nbsp;<span class="next_page" id="next_page"><a href="javascript:page(1)">下一页</a></span>
+    	</div>
+   </div>
+   
+   <div class="photo" style="display:none;" id="sheet2">
+   <span id="new_">新添用户</span><br>
+   <div id="add_new">
+   <span>用户名：</span><input type="text" id="newusername"/><br><br>
+   <span>密码 ：</span><input type="text" id="newpassword"/><br>
+   </div>
+   <div id="add_sure"><a href="javascript:adduser()">确认添加</a></div>
+   <div id="myresult" align="center"></div>
+   
+   </div>
+   <div class="photo" style="display:none" id="sheet3">
+    		<span class="upd">更新用户</span><br>
+    		<div class="headline">
+	    		<span>输入用户ID</span>
+	    		<input type="text" id="number" name="blank">
+	    		<span class="xixi"><a href="javascript:showinfo(1)">search</a></span>
+    		</div>
+    		<div class="old">
+    			<span class="mes">原信息：</span><br>
+    				<table id="tab_">
+    				<tr>
+    					<td class="le">
+    						<span>原ID</span>&nbsp;&nbsp;
+    					</td>
+    					<td class="ri">
+    						<input type="text" id="dd" name="in1" readonly="readonly">
+    					</td>
+    				</tr>
+    				<tr class="line">
+    					<td class="le">
+    						<span>原用户名</span>&nbsp;&nbsp;
+    					</td>
+    					<td class="ri">
+    						<input type="text" id="nn" name="in2" readonly="readonly">
+    					</td>
+    				</tr>
+    				<tr class="line">
+    					<td class="le">
+    						<span>原密码</span>&nbsp;&nbsp;
+    					</td>
+    					<td class="ri">
+    						<input type="text" id="pp" name="in3" readonly="readonly">
+    					</td>
+    				</tr>
+    			</table>
+    		</div>
+    		<div class="new">
+    			<span class="mes">修改信息：</span><br>
+    				<table id="tab_">
+    				<tr>
+    					<td class="le">
+    						<span>新ID</span>&nbsp;&nbsp;
+    					</td>
+    					<td class="ri">
+    						<input type="text" id="ddd" name="in4">
+    					</td>
+    				</tr>
+    				<tr class="line">
+    					<td class="le">
+    						<span>新用户名</span>&nbsp;&nbsp;
+    					</td>
+    					<td class="ri">
+    						<input type="text" id="nnn" name="in5">
+    					</td>
+    				</tr>
+    				<tr class="line">
+    					<td class="le">
+    						<span>新密码</span>&nbsp;&nbsp;
+    					</td>
+    					<td class="ri">
+    						<input type="text" id="ppp" name="in6">
+    					</td>
+    				</tr>
+    			</table>
+    			</div>
+    			<span class="btm"><a href="javascript:updateuser()">确认更新</a></span>
+    			<div id="myresult__" align="center"></div>
+    	</div>
+   
+   <div class="photo" style="display:none" id="sheet4">
+   <span id="new_">删除用户</span><br>
+   <div id="add_new">
+   <span>选择用户ID</span><input type="text" id="delete_id" onblur="showinfo(2)" onfocus="dish()" />
+    <br><br>
+   <span>用户名：</span><input type="text" id="delete_username" readonly="readonly"><br><br>
+   <span>密码 ：</span><input type="text" id="delete_password" readonly="readonly"><br>
+   </div>
+   <div id="add_sure"><a href="javascript:deleteuser()">确认删除</a></div>
+   <div id="myresult_" align="center"></div>
+   
+   </div>
 
 
     </section>
@@ -459,3 +688,4 @@ var username=GetQueryString("username");
 </div>
 </body>
 </html>
+    		

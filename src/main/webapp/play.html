@@ -1,0 +1,113 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+<title>CoCo Movies</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/authorize.js"></script>
+<script>
+ 
+     var username=GetQueryString("username");
+     autho1();
+    
+////////////////////////       权限验证      / ////////////////////////
+	/* document.frames['movieplay'].src = "http://wap.lol5s.com/play/?id=" +GetQueryString("id"); */
+ </script>
+</head>
+<body>
+	<!-- Shell -->
+	<div id="shell">
+		<!-- Header -->
+		<div id="header">
+			<h1 id="logo">CoCo Movies</h1>
+			<div class="social">
+				<span id="dd"></span>
+				<ul>
+                     
+				</ul>
+			</div>
+
+			<!-- Navigation -->
+			<div id="navigation">
+				<ul>
+					<li style="font-family:Tahoma, Geneva, sans-serif;"><a
+						class="active" href="#"
+						style="font-family:Tahoma, Geneva, sans-serif;">首页</a></li>
+					<li><a href="#">推荐</a></li>
+					<li><a href="#">院线</a></li>
+					<li><a href="#">电影</a></li>
+					<li><a href="login.html">登录</a></li>
+					<li><a href="register.html">注册</a></li>
+				</ul>
+				<div id="info"></div>
+			</div>
+			<!-- end Navigation -->
+
+			<!-- Sub-menu -->
+			<div id="sub-navigation">
+				<ul>
+					<li><a href="#">全部电影</a></li>
+					<li><a href="#">最新电影</a></li>
+					<li><a href="#">排行榜</a></li>
+					<li><a href="#">好评榜</a></li>
+				</ul>
+				<div id="search">
+					<form action="home_submit" method="get" accept-charset="utf-8">
+						<label for="search-field">搜索</label> <input type="text"
+							name="search field" value="Enter search here" id="search-field"
+							title="Enter search here" class="blink search-field" /> <input
+							type="submit" value="GO!" class="search-button" />
+					</form>
+				</div>
+			</div>
+			<!-- end Sub-Menu -->
+
+		</div>
+		<!-- end Header -->
+</div>
+		<!-- Main -->
+		<div id="main">
+			<!-- Content -->
+			<div id="content">
+				<!-- Box -->
+				<div class="box">
+					
+
+					<div style="width:680px;height:460px;overflow:hidden;border:0px;position: absolute; top: 200px; left: 330px;" scrolling="no";> 
+                <div style="width:500px;height:400px;margin:-220px 0px 0px -10px;" >
+                    <iframe id="movieplay" src="http://www.iqiyi.com/v_19rr9tlooc.html?vfm=m_303_qqll" width="700" height="1024" scrolling="no" autoplay="true" >
+                    </iframe>
+                </div> 
+        </div>
+
+					
+			
+				</div>
+</div>
+	</div>
+
+	<script>
+	 var movieid=GetQueryString("id");
+     console.log(movieid);
+     console.log("http://www.iqiyi.com/"+movieid);
+     var movieplay=document.getElementById("movieplay");
+     
+     movieplay.src="http://www.iqiyi.com/"+movieid;
+	 
+             if(username==null){
+             document.getElementById("info").innerHTML="<font size='3' color='black'>您还未登录！</font>";
+	         
+	         }
+	         else{
+	         document.getElementById("info").innerHTML="<font size='3'>"+username+" ， 您已登录 <a href='javascript:logout()'>注销</a></font>";
+	      
+	         }
+	</script>
+	
+	
+</body>
+</html>

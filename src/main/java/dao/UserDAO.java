@@ -10,7 +10,7 @@ public class UserDAO {
 	public static final String DBURL = "jdbc:mysql://localhost:3306/coco";
 	public static final String DBURL2 = "jdbc:mysql://localhost:3306/mobiledb";
 	public static final String DBUSER = "root";
-	public static final String DBPASS = "dba";
+	public static final String DBPASS = "admin";
 
 	private Connection conn = null;
 	private PreparedStatement pStat = null;
@@ -73,14 +73,14 @@ public class UserDAO {
 
 		} // end isUsernameExists
 	}
-	public String findUserfromid(int id) {
+	public ResultSet findUserfromid(int id) {
 		conn = getConnectionn();
 		try{
 			pStat = conn.prepareStatement("select * from user where id=?");
 			pStat.setInt(1, id);
 			rs = pStat.executeQuery();
-			if (rs.next())
-				return rs.getString("username");
+			if (rs!=null)
+				return rs;
 			else
 
 				return null;
@@ -90,7 +90,7 @@ public class UserDAO {
 			System.out.println("查id出错！");
 			return null;
 		} finally {
-		       close();
+		      
 		}
 		
 	}
@@ -173,6 +173,28 @@ public class UserDAO {
 			close();
 		}
 	}//end update
+	
+	public boolean updatebyid(int id,int id_,String name,String password){
+		conn=getConnectionn();
+		try{
+			pStat=conn.prepareStatement("update user set id=?,username=?,password=? where id=?");
+		    pStat.setInt(1,id_);
+		    pStat.setString(2,name);
+		    pStat.setString(3,password);
+		    pStat.setInt(4,id);
+		    int cnt=pStat.executeUpdate();
+		    if(cnt>0)
+		    	 return true;
+		    else
+		    	return false;
+		}catch(Exception e) {
+			System.out.println("更新错误！");
+			return false;
+		} finally {
+			close();
+		}
+	}//end update
+	
 	public boolean delete(int id){
 		conn=getConnectionn();
 		try{
@@ -212,6 +234,30 @@ public class UserDAO {
 		}
 	}
 	
+public ResultSet findbyword(String s1,String s2) {
+	System.out.println(s1+" "+s2);
+		conn = getConnectionn();
+		try {
+		pStat = conn.prepareStatement("select * from user where username>=? and username<=?");
+	//	int cnt = pStat.executeUpdate();
+		pStat.setString(1, s1);
+		pStat.setString(2, s2);
+		ResultSet rs=pStat.executeQuery( );
+		if (rs!=null)
+		{
+			System.out.println("rs!=null");
+			return rs;
+			
+		}
+		else
+			return null;
+		} catch (Exception e) {
+			System.out.println("sort用户错误！");
+			return null;
+		} finally {
+			
+		}
+	}
 	
 //	public ResultSet search(String singer,String song) {
 //		conn=getConnectionn2();

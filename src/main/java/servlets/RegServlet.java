@@ -43,7 +43,7 @@ public class RegServlet extends HttpServlet{
 			if(flag){
 				jr.setString("success");
 				jr.setStatus(0);
-			request.getSession().setAttribute("username", username);
+			/*request.getSession().setAttribute("username", username);*/
 			}
 			else
 			{
