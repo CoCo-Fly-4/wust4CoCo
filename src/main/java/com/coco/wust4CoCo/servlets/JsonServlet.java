@@ -1,4 +1,4 @@
-package servlets;
+package com.coco.wust4CoCo.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;

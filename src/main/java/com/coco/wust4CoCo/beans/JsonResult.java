@@ -1,4 +1,4 @@
-package beans;
+package com.coco.wust4CoCo.beans;
 
 public class JsonResult{
 	

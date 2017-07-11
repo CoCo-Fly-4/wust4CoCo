@@ -1,4 +1,4 @@
-package servlets;
+package com.coco.wust4CoCo.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import beans.JsonResult;
-import dao.UserDAO;
+import com.coco.wust4CoCo.beans.JsonResult;
 
-public class UpdateServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
 	/**
 	 * The doPost method of the servlet. <br>
@@ -29,31 +28,21 @@ public class UpdateServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int oldid=Integer.parseInt(request.getParameter("id"));
-		int newid=Integer.parseInt(request.getParameter("newid"));
-		String newname=request.getParameter("newname");
-		String newpass=request.getParameter("newpass");
-		
-		UserDAO userdao=new UserDAO();
-		
-		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
+		response.setCharacterEncoding("UTF-8");
+		String username=(String)request.getSession().getAttribute("username");
+		System.out.println("before session: "+username);
+		request.getSession().setAttribute("username", "null");
+		String username2=(String)request.getSession().getAttribute("username");
+		System.out.println("after session: "+username2);
+        ArrayList<JsonResult> result=new ArrayList<JsonResult>();	
 		JsonResult jr=new JsonResult();
-		
-		boolean flag=userdao.updatebyid(oldid, newid, newname, newpass);
-		if(flag){
-			jr.setString("success");
-			jr.setStatus(0);
-		
-		}
-		else
-		{
-			jr.setString("fail");
-	    	jr.setStatus(-1);
-		}
+		jr.setString("success");
+		jr.setStatus(0);
 		Gson gb = new Gson();
 		result.add(jr);
 		String info=gb.toJson(result);
 		response.getWriter().append(info);
+		
 		
 	}
 

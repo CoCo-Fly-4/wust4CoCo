@@ -1,4 +1,4 @@
-package servlets;
+package com.coco.wust4CoCo.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import beans.User;
-import dao.UserDAO;
+import com.coco.wust4CoCo.beans.User;
+import com.coco.wust4CoCo.dao.UserDAO;
 
-public class FindServlet extends HttpServlet {
+public class SortServlet extends HttpServlet {
 
 	/**
 	 * The doPost method of the servlet. <br>
@@ -31,31 +31,45 @@ public class FindServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int id=Integer.parseInt(request.getParameter("id"));
+		String[] words={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+		String word=request.getParameter("word");
+		int num=Integer.parseInt(word);
 		UserDAO userdao=new UserDAO();
 		ArrayList<User> list=new ArrayList<User>();
-		ResultSet rs=userdao.findUserfromid(id);
+		
+		String s1=words[num-1];
+		String s2=words[num];
+		System.out.println(s1+"&"+s2);
+		ResultSet rs=userdao.findbyword(s1, s2);
+		
 		if(rs!=null)
 		{
+			System.out.println("rs!======null");
 			try {
-				if(rs.next())
+				while(rs.next())
 				{
+					System.out.println(Integer.parseInt(rs.getString("id"))+" "+rs.getString("username")+" "+rs.getString("password"));
 					User user=new User();
 					user.setId(Integer.parseInt(rs.getString("id")));
 					user.setUsername(rs.getString("username"));
 					user.setPassword(rs.getString("password"));
+					
 					list.add(user);
 				}
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
+				System.out.println("That's all !");
 				e.printStackTrace();
-			}
+			} 
+		
+		}
+		else{
+			System.out.println("list user null");
 		}
 		
 		Gson gb = new Gson();
 		String info=gb.toJson(list);
 		response.getWriter().append(info);
-		
 	}
 
 }

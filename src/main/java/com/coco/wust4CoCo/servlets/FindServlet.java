@@ -1,7 +1,9 @@
-package servlets;
+package com.coco.wust4CoCo.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -11,9 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import beans.JsonResult;
+import com.coco.wust4CoCo.beans.User;
+import com.coco.wust4CoCo.dao.UserDAO;
 
-public class LogoutServlet extends HttpServlet {
+public class FindServlet extends HttpServlet {
 
 	/**
 	 * The doPost method of the servlet. <br>
@@ -28,21 +31,30 @@ public class LogoutServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setCharacterEncoding("UTF-8");
-		String username=(String)request.getSession().getAttribute("username");
-		System.out.println("before session: "+username);
-		request.getSession().setAttribute("username", "null");
-		String username2=(String)request.getSession().getAttribute("username");
-		System.out.println("after session: "+username2);
-        ArrayList<JsonResult> result=new ArrayList<JsonResult>();	
-		JsonResult jr=new JsonResult();
-		jr.setString("success");
-		jr.setStatus(0);
-		Gson gb = new Gson();
-		result.add(jr);
-		String info=gb.toJson(result);
-		response.getWriter().append(info);
+		int id=Integer.parseInt(request.getParameter("id"));
+		UserDAO userdao=new UserDAO();
+		ArrayList<User> list=new ArrayList<User>();
+		ResultSet rs=userdao.findUserfromid(id);
+		if(rs!=null)
+		{
+			try {
+				if(rs.next())
+				{
+					User user=new User();
+					user.setId(Integer.parseInt(rs.getString("id")));
+					user.setUsername(rs.getString("username"));
+					user.setPassword(rs.getString("password"));
+					list.add(user);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
+		Gson gb = new Gson();
+		String info=gb.toJson(list);
+		response.getWriter().append(info);
 		
 	}
 

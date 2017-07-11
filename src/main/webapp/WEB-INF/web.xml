@@ -6,62 +6,62 @@ version="2.5">
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>RegServlet</servlet-name>
-    <servlet-class>servlets.RegServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.RegServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>servlets.LoginServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>JsonServlet</servlet-name>
-    <servlet-class>servlets.JsonServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.JsonServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>RegValiServlet</servlet-name>
-    <servlet-class>servlets.RegValiServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.RegValiServlet</servlet-class>
   </servlet>
  
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>WelValiServlet</servlet-name>
-    <servlet-class>servlets.WelValiServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.WelValiServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>servlets.LogoutServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.LogoutServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>SortServlet</servlet-name>
-    <servlet-class>servlets.SortServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.SortServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>FindServlet</servlet-name>
-    <servlet-class>servlets.FindServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.FindServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>DeleteServlet</servlet-name>
-    <servlet-class>servlets.DeleteServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.DeleteServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>UpdateServlet</servlet-name>
-    <servlet-class>servlets.UpdateServlet</servlet-class>
+    <servlet-class>com.coco.wust4CoCo.servlets.UpdateServlet</servlet-class>
   </servlet>
 
 

@@ -10,13 +10,13 @@
 
 <script type="text/javascript" src="js/authorize.js"></script>
 <script>
- 
-     var username=GetQueryString("username");
-     autho1();
-    
-////////////////////////       权限验证      / ////////////////////////
+
+	var username = GetQueryString("username");
+	autho1();
+
+	////////////////////////       权限验证      / ////////////////////////
 	/* document.frames['movieplay'].src = "http://wap.lol5s.com/play/?id=" +GetQueryString("id"); */
- </script>
+</script>
 </head>
 <body>
 	<!-- Shell -->
@@ -27,7 +27,7 @@
 			<div class="social">
 				<span id="dd"></span>
 				<ul>
-                     
+
 				</ul>
 			</div>
 
@@ -35,7 +35,7 @@
 			<div id="navigation">
 				<ul>
 					<li style="font-family:Tahoma, Geneva, sans-serif;"><a
-						class="active" href="#"
+						class="active" href="index.html"
 						style="font-family:Tahoma, Geneva, sans-serif;">首页</a></li>
 					<li><a href="#">推荐</a></li>
 					<li><a href="#">院线</a></li>
@@ -68,46 +68,43 @@
 
 		</div>
 		<!-- end Header -->
-</div>
-		<!-- Main -->
-		<div id="main">
-			<!-- Content -->
-			<div id="content">
-				<!-- Box -->
-				<div class="box">
-					
+	</div>
+	<!-- Main -->
+	<div id="main">
+		<!-- Content -->
+		<div id="content">
+			<!-- Box -->
+			<div class="box">
 
-					<div style="width:680px;height:460px;overflow:hidden;border:0px;position: absolute; top: 200px; left: 330px;" scrolling="no";> 
-                <div style="width:500px;height:400px;margin:-220px 0px 0px -10px;" >
-                    <iframe id="movieplay" src="http://www.iqiyi.com/v_19rr9tlooc.html?vfm=m_303_qqll" width="700" height="1024" scrolling="no" autoplay="true" >
-                    </iframe>
+
+        <div style="width:1366px;height:480px;overflow:hidden;border:0px;position: absolute; top: 220px; left: 200px;"> 
+                <div style="width:800px;height:400px;margin:-240px 100px 0px -50px;">
+                    <iframe src="" id="movieplay" width="1000" height="1024" scrolling="no" autoplay="true"></iframe>
                 </div> 
         </div>
 
-					
-			
-				</div>
-</div>
+
+
+			</div>
+		</div>
 	</div>
 
 	<script>
-	 var movieid=GetQueryString("id");
-     console.log(movieid);
-     console.log("http://www.iqiyi.com/"+movieid);
-     var movieplay=document.getElementById("movieplay");
-     
-     movieplay.src="http://www.iqiyi.com/"+movieid;
-	 
-             if(username==null){
-             document.getElementById("info").innerHTML="<font size='3' color='black'>您还未登录！</font>";
-	         
-	         }
-	         else{
-	         document.getElementById("info").innerHTML="<font size='3'>"+username+" ， 您已登录 <a href='javascript:logout()'>注销</a></font>";
-	      
-	         }
+		var movieid = GetQueryString("id");
+		console.log(movieid);
+		var movieplay = document.getElementById("movieplay");
+	
+		movieplay.src = "http://www.gooddianying.com/vodplay/" + movieid+".html?";
+	
+		if (username == null) {
+			document.getElementById("info").innerHTML = "<font size='3' color='black'>您还未登录！</font>";
+	
+		} else {
+			document.getElementById("info").innerHTML = "<font size='3'>" + username + " ， 您已登录 <a href='javascript:logout()'>注销</a></font>";
+	
+		}
 	</script>
-	
-	
+
+
 </body>
 </html>

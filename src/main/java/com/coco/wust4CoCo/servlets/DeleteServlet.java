@@ -1,4 +1,4 @@
-package servlets;
+package com.coco.wust4CoCo.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import beans.JsonResult;
-import dao.UserDAO;
+import com.coco.wust4CoCo.beans.JsonResult;
+import com.coco.wust4CoCo.dao.UserDAO;
 
 public class DeleteServlet extends HttpServlet {
 
