@@ -75,7 +75,8 @@ public ResultSet findmovie(int id){
 		e.printStackTrace();
 		return null;
 	}
-}
+} //end findmovie
+
 
 
 

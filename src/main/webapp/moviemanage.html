@@ -35,24 +35,105 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="text/javascript" src="js/display.js"></script>
     <script type="text/javascript" src="js/authorize.js"></script>
     <style type="text/css">
+    
+    .showfilm{
+    width:1000px;
+    height:400px;
+    }
+    
     .film_tab{
+    margin-left:20px;
 	width:1000px;
 	background: rgba(255,255,255,0.5);
 	
 	}
 	.film_tab tr{
 	text-align:left;
-	height:20px;
+	height:50px;
 	}
 	.film_tab td{
-   
-   font-size:16px;
+   font-family:sans-serif;;
+   font-size:18px;
    width:140px;
+   font-style:italic;
     }
     .film_tab th{
    
    font-size:20px;
    background: rgba(255,255,255,0.1);
+    }
+    
+    .add_button{
+    width:100px;
+    text-align:center;
+    margin-left:35px;
+    float:left;
+    font-size:19px;
+    background: rgba(255,255,255,0.5);
+    font-style:bold;
+    }
+    .pagebutton{
+    background: rgba(255,255,255,0.5);
+    margin-left:380px;
+    margin-right:562px;
+    font-size:18px;
+    }
+    .movieimg{
+    margin-left:70px;
+    width:400px;
+    float:left;
+    }
+    .movieimg img{
+    width:300px;
+    
+    }
+    .information{
+    padding-left:400px;
+   
+    }
+    .movie_name{
+  
+    font-size:34px;
+    font-style:italic;
+    color:#66009D;
+    }
+    .else{
+    font-size:22px;
+    }
+    .back_{
+    font-size:18px;
+    font-style:italic;
+    }
+    .edit{
+    font-size:22px;
+    color:#0000FF;
+    }
+    .content_intro{
+    font-size:18px;
+    }
+    .newmoviesheet{
+    float:left;
+    
+    margin-left:200px;
+    text-align:left;
+    font-size:18px;
+    }
+    .twobutton{
+    float:left;
+    font-size:20px;
+    margin-left:100px;
+    margin-top:200px;
+    color:#FF5511;
+    }
+    .addtitlt{
+    text-align:center;
+    margin-left:120px;
+    background: rgba(255,255,255,0.5);
+    font-size:30px;
+    color:#FF5511;
+    }
+    #new_classify{
+    width:235px;
     }
    </style>
 </head>
@@ -308,11 +389,37 @@ var username=GetQueryString("username");
       <!-- Your Page Content Here -->
     
     <div class="showfilm" id="showfilm">
-    
-   
     </div>
+    <div class="add_button" id="add_button"><a href="javascript:addmovie1()">添加视频</a></div>
+    <div class="pagebutton" id="pagebutton">&nbsp;&nbsp; 
+    <span><a href="javascript:pagedown(-1)">上一页</a></span>&nbsp;&nbsp;&nbsp;
+    <span><a href="javascript:pagedown(1)">下一页</a></span>
+    </div>
+    <div class="showfilm" id="moviedetail" style="display:none"> </div>
+    <div class="showfilm" id="movieadd" style="display:none">
+    <div class="newmoviesheet">
+    <div class="addtitlt">添加视频</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br><br>
+    <span>新添影视名称: <input type="text" id="new_name"/></span><br><br>
+    <span>新添影视分类: <select id="new_classify">
+  <option value="剧情">剧情</option>
+  <option value="喜剧">喜剧</option>
+  <option value="爱情">爱情</option>
+  <option value="动作">动作</option>
+  <option value="古装">古装</option>
+  <option value="恐怖">恐怖</option>
+  </select></span><br><br>
+  <span>影视主要演员: <input type="text" id="new_actor"/></span><br><br>
+  <span>影视播放网址: <input type="text" id="new_address"/></span><br><br>
+  <span>影视图片链接: <input type="text" id="new_imgurl"/></span><br><br>
+  <span>影视简介信息: <textarea id="new_intro"></textarea></span>
+  </div>
+  <div class="twobutton">
 
- 
+  <input type="button" value="提交" onclick="adduser()"/><br><br>
+    <input type="button" value="返回" onclick="javascript:history.back(0);"/>
+  </div>
+     </div>
 
 
     </section>
