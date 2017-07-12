@@ -35,17 +35,36 @@ function showinfo(num)
 		 success: function(data){    	
 		 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
 		 if(num==2){
+			 console.log("删除用户："+obj.length);
+			 if(obj.length==0){
+				 document.getElementById("myresult_").innerHTML="<font color='red'>用户不存在！</font>"; 
+				 document.getElementById("delete_username").value="";
+				document.getElementById("delete_password").value="";
+			 }
+			 else{
 			document.getElementById("delete_username").value=obj[0].username;
 			document.getElementById("delete_password").value=obj[0].password;
+			 }
 		 }
 		 if(num==1){
+			 if(obj.length==0)
+				 {
+				 document.getElementById("myresult__").innerHTML="<font color='red'>Not find</font>";
+					document.getElementById("ddd").value="";
+				 	 document.getElementById("ppp").value="";
+					document.getElementById("dd").value="";
+					document.getElementById("nn").value="";
+					document.getElementById("pp").value="";
+				 }
+			 else{
 			 document.getElementById("myresult__").innerHTML="";
-			 document.getElementById("ddd").value="";
-			 document.getElementById("nnn").value="";
-			 document.getElementById("ppp").value="";
+			document.getElementById("ddd").value="";
+			document.getElementById("nnn").value="";
+		 	 document.getElementById("ppp").value="";
 			document.getElementById("dd").value=obj[0].id;
 			document.getElementById("nn").value=obj[0].username;
 			document.getElementById("pp").value=obj[0].password;
+			 }
 		 }
 	    
         }  
