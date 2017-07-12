@@ -32,29 +32,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <![endif]-->
   
     <script type="text/javascript" src="js/jquery.min.js"></script>
-
-  <script type="text/javascript" src="js/authorize.js"></script>
+    <script type="text/javascript" src="js/display.js"></script>
+    <script type="text/javascript" src="js/authorize.js"></script>
+    <style type="text/css">
+    .film_tab{
+	width:1000px;
+	background: rgba(255,255,255,0.5);
+	
+	}
+	.film_tab tr{
+	text-align:left;
+	height:20px;
+	}
+	.film_tab td{
+   
+   font-size:16px;
+   width:140px;
+    }
+    .film_tab th{
+   
+   font-size:20px;
+   background: rgba(255,255,255,0.1);
+    }
+   </style>
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 
 <script>
 var username=GetQueryString("username");
@@ -62,7 +63,7 @@ var username=GetQueryString("username");
 </script>
 
 
-<body class="hold-transition  sidebar-mini" background="dist/img/img1.jpg">
+<body class="hold-transition  sidebar-mini" background="dist/img/img1.jpg" >
 <div class="whole">
 <div class="wrapper">
 
@@ -306,15 +307,21 @@ var username=GetQueryString("username");
 
       <!-- Your Page Content Here -->
     
-    这是 影视管理 页面
+    <div class="showfilm" id="showfilm">
+    
+   
+    </div>
 
-
+ 
 
 
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
+
 
   <!-- Main Footer -->
   <footer class="main-footer">
