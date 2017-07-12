@@ -1,13 +1,3 @@
-### 2017年7月7日日志                                
-+  加入了主页
-+  使用ajax完善了服务验证
-+  加入权限验证
-### 待解决：
-+ 管理员页面布局
-+ 管理员页面实现
-+ 影视资源获取
-
-
 
 # Welcome to [CoCo-Fly](https://github.com/CoCo-Fly-4/wust4CoCoFly)
 <br/>
