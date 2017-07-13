@@ -31,7 +31,7 @@ function GetQueryString(name)
    
    function getsession()
    {
-	   var username=GetQueryString("username");
+	   
 	    $.ajax({  
           type: "POST",  
           url: "http://127.0.0.1:8080/wust4CoCo/servlet/SessionServlet",  
@@ -40,19 +40,13 @@ function GetQueryString(name)
           	var obj = JSON.parse(data);
           	console.log("getsession:"+obj[0].Pdata);
              var real= obj[0].Pdata;
-            
-             if(username==real){
-            	 if(real=="cocoadmin")
-            		 window.location='admincoco.html'; 
-            	 else
+             if(real=="null"||real==undefined)
+            	 document.getElementById("info").innerHTML="<font size='4' color='black'>未登录</font>";
+             else if(real=="cocoadmin")
+                  window.location="admincoco.html";
+             else
             	 document.getElementById("info").innerHTML="<font size='3'>"+real+" ， 您已登录 <a href='javascript:logout()'>注销</a></font>";
-             }
-            else {  
-            	 if(real==null||real=="null")
-                	 window.location='login.html'; 
-            	 else
-            	     window.location='index.html?username='+real; 
-             }
+             
           }  
       })  ;   
 	    
@@ -62,7 +56,7 @@ function GetQueryString(name)
    
    
    
-   function autho1()
+ /*  function autho1()
    {
 	   var username=GetQueryString("username");
 	     $.ajax({  
@@ -100,11 +94,10 @@ function GetQueryString(name)
                  if(obj[0].string=="admin"&&obj[0].status==0)
               	   console.log("权限验证通过");
                else
-               {    
-                         
+               {                
               	   window.location.href="err.html";
                }
               	 
           }  
       })  ;      
-   }
+   }*/

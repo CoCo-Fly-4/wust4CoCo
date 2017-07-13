@@ -10,7 +10,7 @@
 
         var flaf=0;
 	 function checkname(){  //失去焦点时执行的函数
-		 var username=document.getElementById("user").value;
+		 
 	     
 	  if(user.value==""){
 	   var inner=document.getElementById("in");
@@ -32,8 +32,8 @@
 /***************************************************************************/
 		$.ajax({  
 		            type: "POST",  
-		            url: "http://127.0.0.1:8080/wust4CoCo/servlet/RegValiServlet?username="+username,  
-		            data: $('#form').serialize(),  
+		            url: "http://127.0.0.1:8080/wust4CoCo/servlet/RegValiServlet",  
+		            data: "username="+$('#user').val(),  
 		            success: function(data){    
 		            	
 		            	var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
@@ -94,14 +94,13 @@
 		}	
 		
            function register(){
-				 var username=document.getElementById("user").value;
-			     var password=document.getElementById("password").value;
+				 
 
 /***************************************************************************/
 		$.ajax({  
 			 type: "POST",  
-			 url: "http://127.0.0.1:8080/wust4CoCo/servlet/RegServlet?username="+username+"&password="+password,  
-			 data: $('#form').serialize(),  
+			 url: "http://127.0.0.1:8080/wust4CoCo/servlet/RegServlet",  
+			 data: "username="+$('#user').val()+"&password="+$('#password').val(),  
 			 success: function(data){    	
 			 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
 			 if(obj[0].string=="success"&&obj[0].status==0)

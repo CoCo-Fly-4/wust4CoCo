@@ -39,17 +39,18 @@
 	}
 	  
 	  function login(){
-		  var username=document.getElementById("user").value;
-		  var password=document.getElementById("password").value;     
+		  
 			$.ajax({  
 	            type: "POST",  
-	            url: "http://127.0.0.1:8080/wust4CoCo/servlet/LoginServlet?username="+username+"&password="+password,  
-	            data: $('#form').serialize(),  
+	            url: "http://127.0.0.1:8080/wust4CoCo/servlet/LoginServlet",  
+	            data: "username="+$('#user').val()+"&password="+$('#password').val(),   
 	            success: function(data){    	
 	            	var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
 	            	
 	                   if(obj[0].string=="success"&&obj[0].status==0)
-	                	   window.location.href="index.html?username="+username;
+	                	   window.location.href="index.html";
+	                   else if(obj[0].string=="admin"&&obj[0].status==0)
+	                	   window.location.href="admincoco.html";
 	                 else
 	                	 document.getElementById("in").innerHTML="<font color='red'>登录失败！</font>";
 	                	 

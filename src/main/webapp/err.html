@@ -20,38 +20,10 @@
     <img src="images/access.jpg"/>
     </div>
     <script>
-     
-     
-    setTimeout(logout,3000); 
-    function logout()
-    {
-    window.location.href="index.html?username="+real;
-    
-    }
-    
-   /*  function logout()
-    {
-    
-    var username="obj";
-    $.ajax({  
-	            type: "POST",  
-	            url: "http://127.0.0.1:8080/wust4CoCo/servlet/LogoutServlet?username="+username,  
-	            data: $('#form').serialize(),  
-	            success: function(data){    	
-	            	var obj = JSON.parse(data);
-	            	
-	                   if(obj[0].string=="success"&&obj[0].status==0)
-	                   {
-	                	   console.log("注销成功");
-	                	   window.location.href="index.html";
-	                   }
-	                 else
-	                	   console.log("注销失败");
-	                	 
-	            }  
-	        })  ;   
-    } */
-    </script>
+
+    setTimeout("window.location='index.html'",3000); 
+  
+ </script>
     
   </body>
 </html>

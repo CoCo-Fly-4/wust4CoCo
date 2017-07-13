@@ -1,8 +1,7 @@
 package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -24,29 +23,38 @@ public class LoginServlet extends HttpServlet{
 			throws ServletException, IOException {
 			String username=request.getParameter("username");
 			String password=request.getParameter("password");
-			String path = request.getContextPath();
+			
 			System.out.println("进入LoginServlet");
 			System.out.println("in loginservlet:");
 			System.out.println("username="+username);
-			request.getSession().setAttribute("username", username);
+			
 			
 			UserDAO userdao=new UserDAO();
 			ArrayList<JsonResult> result=new ArrayList<JsonResult>();
 			JsonResult jr=new JsonResult();
 			
 			boolean flag=userdao.findUser(username, password);
-			if( flag ) {
-			
+			if( flag ) {		
+				   if(username.equals("cocoadmin"))
+				   {
+					   jr.setString("admin");
+					    jr.setStatus(0);
+					    System.out.println("jr=admin");
+				   }
+				   else{
 					jr.setString("success");
 				    jr.setStatus(0);
 				    System.out.println("jr=success");
+				   }
+				    request.getSession().setAttribute("username", username);
 				}
 				else{
 				jr.setString("fail");
 				jr.setStatus(-1);
 				System.out.println("jr=fail");
+				request.getSession().setAttribute("username", "null");
 				}
-				request.getSession().setAttribute("username", username);
+				
 				
 			Gson gb = new Gson();
 			result.add(jr);

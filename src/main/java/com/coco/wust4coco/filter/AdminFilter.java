@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginFilter implements Filter {
+public class AdminFilter implements Filter {
 
 	@Override
 	public void destroy() {
@@ -27,24 +27,21 @@ public class LoginFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest)arg0;
         HttpServletResponse resp =(HttpServletResponse) arg1;
         HttpSession session = req.getSession();
-		
-        String path = req.getRequestURI();
-        System.out.println("path:"+path);
-        String username = (String) session.getAttribute("username");
-        System.out.println("session:"+username);
-	
-         if(null!=username&&username.equals("cocoadmin"))
-        		resp.sendRedirect("http://127.0.0.1:8080/wust4CoCo/admincoco.html");
-        	else
-        		arg2.doFilter(req, resp);
         
+		String Path=req.getContextPath();
 		
+        
+        String username = (String) session.getAttribute("username");
+        if(null!=username&&username.equals("cocoadmin"))
+        	arg2.doFilter(req, resp);
+        else
+        	resp.sendRedirect(Path+"/err.html");
+
 	}
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-		
 
 	}
 
