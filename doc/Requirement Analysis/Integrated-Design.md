@@ -3,11 +3,11 @@
  +  Jsp+Servlet+Mysql搭建网站
  +  实现影视在线观看、评论、评分，管理员管理影视资源、用户信息等  
  
-![](http://chuantu.biz/t5/125/1499172857x974338535.png) 
+![整体设计图片](http://chuantu.biz/t5/125/1499172857x974338535.png) 
 
 ## (一) 关于Heritrix爬虫  
 
-![](http://chuantu.biz/t5/125/1499179381x974338535.png)
+![Heritrix设计](http://chuantu.biz/t5/125/1499179381x974338535.png)
 
 +  目标网站：good影视网、电影天堂
 +  种子网站：
@@ -20,7 +20,7 @@
 
 ## (二) 关于Lucene索引
 
-![](http://chuantu.biz/t5/125/1499179395x974338535.png)
+![Lucene设计](http://chuantu.biz/t5/125/1499179395x974338535.png)
 
 +  将爬取到的内容转化为文本
 +  生成索引文件
