@@ -1,4 +1,4 @@
-package com.coco.wust4CoCo.servlets;
+package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.coco.wust4CoCo.beans.Film;
-import com.coco.wust4CoCo.dao.FilmDAO;
+import com.coco.wust4coco.beans.Film;
+import com.coco.wust4coco.dao.FilmDAO;
 import com.google.gson.Gson;
 
 

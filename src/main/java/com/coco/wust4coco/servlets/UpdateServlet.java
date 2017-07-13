@@ -1,4 +1,4 @@
-package com.coco.wust4CoCo.servlets;
+package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,11 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.coco.wust4coco.beans.JsonResult;
+import com.coco.wust4coco.dao.UserDAO;
 
-import com.coco.wust4CoCo.beans.JsonResult;
-import com.coco.wust4CoCo.dao.UserDAO;
-
-public class DeleteServlet extends HttpServlet {
+public class UpdateServlet extends HttpServlet {
 
 	/**
 	 * The doPost method of the servlet. <br>
@@ -24,17 +23,22 @@ public class DeleteServlet extends HttpServlet {
 	 * @param request the request send by the client to the server
 	 * @param response the response send by the server to the client
 	 * @throws ServletException if an error occurred
-	 * @throws IOException if anetp error occurred
+	 * @throws IOException if an error occurred
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int id=Integer.parseInt(request.getParameter("id"));
+		int oldid=Integer.parseInt(request.getParameter("id"));
+		int newid=Integer.parseInt(request.getParameter("newid"));
+		String newname=request.getParameter("newname");
+		String newpass=request.getParameter("newpass");
+		
 		UserDAO userdao=new UserDAO();
+		
 		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
 		JsonResult jr=new JsonResult();
 		
-		boolean flag=userdao.delete(id);
+		boolean flag=userdao.updatebyid(oldid, newid, newname, newpass);
 		if(flag){
 			jr.setString("success");
 			jr.setStatus(0);

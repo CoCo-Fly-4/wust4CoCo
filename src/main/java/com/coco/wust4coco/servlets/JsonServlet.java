@@ -1,27 +1,14 @@
-package com.coco.wust4CoCo.servlets;
+package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
-
-import com.coco.wust4CoCo.beans.JsonResult;
-
-import com.coco.wust4CoCo.dao.UserDAO;
-
-public class RegValiServlet extends HttpServlet {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class JsonServlet extends HttpServlet {
 
 	/**
 	 * The doGet method of the servlet. <br>
@@ -34,14 +21,35 @@ public class RegValiServlet extends HttpServlet {
 	 * @throws IOException if an error occurred
 	 */
 	
-	public RegValiServlet() {
-	       super();
-	   }
+    
+   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
+/**
+    * @see HttpServlet#HttpServlet()
+    */
+   public JsonServlet() {
+       super();
+   }
+
+	
+	
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		
+		
+    	StringBuilder sb = new StringBuilder();
+    	
+    	response.setContentType("text/json");
+    	
+    	sb.append("Group: CoCo-Fly  |  Member: CoCo & jjj & kunkun & ruirui");    	
+    	
+		response.getWriter().append(sb.toString());
+		//response.flushBuffer();
+
 	}
 
 	/**
@@ -56,41 +64,8 @@ public class RegValiServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-   
+		doGet(request, response);
 		
-		response.setCharacterEncoding("UTF-8");
-		String username=request.getParameter("username");
-		
-		System.out.println(username);
-		
-		
-		UserDAO userdao=new UserDAO();
-		
-	
-		
-		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
-		
-		JsonResult jr=new JsonResult();
-	/*	StringBuilder sb = new StringBuilder();*/
-		if( userdao.isUsernameExists(username) ){	
-	    	
-	    	jr.setString("fail");
-	    	jr.setStatus(-1);
-	    	System.out.println("用户名不可用");
-		}
-		else if(username!=null)
-			
-		{
-			jr.setString("success");
-			jr.setStatus(0);
-			
-			
-			System.out.println("用户名可用");
-		}
-		Gson gb = new Gson();
-		result.add(jr);
-		String info=gb.toJson(result);
-		response.getWriter().append(info);
 	}
 
 }

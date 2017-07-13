@@ -1,4 +1,4 @@
-package com.coco.wust4CoCo.beans;
+package com.coco.wust4coco.beans;
 
 public class User {
 	int id;

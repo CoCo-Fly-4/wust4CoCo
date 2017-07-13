@@ -1,8 +1,8 @@
-package com.coco.wust4CoCo.dao;
+package com.coco.wust4coco.dao;
 
 import java.sql.*;
 
-import com.coco.wust4CoCo.beans.User;
+import com.coco.wust4coco.beans.User;
 
 public class UserDAO {
 
