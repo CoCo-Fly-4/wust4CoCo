@@ -77,8 +77,50 @@ public ResultSet findmovie(int id){
 	}
 } //end findmovie
 
+public boolean addmovie(String name,String classify,String actor,String address,String imgurl,String intro)
+{
+	conn = getConnectionn();
+	try{
+		pStat = conn.prepareStatement("insert into movie values(null,?,?,?,?,?,?)");
+		pStat.setString(1,name);
+		pStat.setString(2,classify);
+		pStat.setString(3,actor);
+		pStat.setString(4,address);
+		pStat.setString(5,imgurl);
+		pStat.setString(6,intro);
+		int cnt = pStat.executeUpdate();
+		if (cnt > 0)
+			return true;
+		else
+			return false;
+	}
+	catch(Exception e){
+		e.printStackTrace();
+		return false;
+	}finally {
+		close();
+	}
+}   //end addmovie()
 
-
+public boolean deletemovie(int id)
+{
+	conn = getConnectionn();
+	try{
+		pStat = conn.prepareStatement("delete from movie where movieid=?");
+		pStat.setInt(1,id);
+		int cnt = pStat.executeUpdate();
+		if (cnt > 0)
+			return true;
+		else
+			return false;
+	}
+	catch(Exception e){
+		e.printStackTrace();
+		return false;
+	}finally {
+		close();
+	}
+}     //end deletemovie()
 
 }
 

@@ -135,6 +135,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     #new_classify{
     width:235px;
     }
+    
    </style>
 </head>
 
@@ -396,11 +397,16 @@ var username=GetQueryString("username");
     <span><a href="javascript:pagedown(1)">下一页</a></span>
     </div>
     <div class="showfilm" id="moviedetail" style="display:none"> </div>
+    
     <div class="showfilm" id="movieadd" style="display:none">
+    
     <div class="newmoviesheet">
     <div class="addtitlt">添加视频</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <br><br>
-    <span>新添影视名称: <input type="text" id="new_name"/></span><br><br>
+    <form id="addform">
+  
+     
+    <span>新添影视名称: <input type="text" id="new_name"></span><br><br>
     <span>新添影视分类: <select id="new_classify">
   <option value="剧情">剧情</option>
   <option value="喜剧">喜剧</option>
@@ -413,11 +419,13 @@ var username=GetQueryString("username");
   <span>影视播放网址: <input type="text" id="new_address"/></span><br><br>
   <span>影视图片链接: <input type="text" id="new_imgurl"/></span><br><br>
   <span>影视简介信息: <textarea id="new_intro"></textarea></span>
+</form>
   </div>
   <div class="twobutton">
 
   <input type="button" value="提交" onclick="adduser()"/><br><br>
-    <input type="button" value="返回" onclick="javascript:history.back(0);"/>
+    <input type="button" value="返回" onclick="javascript:window.location='moviemanage.html';"/><br><br>
+ <span id="showaddresult"></span>
   </div>
      </div>
 
@@ -536,3 +544,4 @@ var username=GetQueryString("username");
 </div>
 </body>
 </html>
+    
