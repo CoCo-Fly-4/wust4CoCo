@@ -29,6 +29,38 @@ function GetQueryString(name)
  
         }	  
    
+   function getsession()
+   {
+	   var username=GetQueryString("username");
+	    $.ajax({  
+          type: "POST",  
+          url: "http://127.0.0.1:8080/wust4CoCo/servlet/SessionServlet",  
+          data: $('#form').serialize(),  
+          success: function(data){    	
+          	var obj = JSON.parse(data);
+          	console.log("getsession:"+obj[0].Pdata);
+             var real= obj[0].Pdata;
+            
+             if(username==real){
+            	 if(real=="cocoadmin")
+            		 window.location='admincoco.html'; 
+            	 else
+            	 document.getElementById("info").innerHTML="<font size='3'>"+real+" ， 您已登录 <a href='javascript:logout()'>注销</a></font>";
+             }
+            else {  
+            	 if(real==null||real=="null")
+                	 window.location='login.html'; 
+            	 else
+            	     window.location='index.html?username='+real; 
+             }
+          }  
+      })  ;   
+	    
+	   
+  }
+   
+   
+   
    
    function autho1()
    {

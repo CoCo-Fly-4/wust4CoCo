@@ -6,103 +6,103 @@ version="2.5">
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>RegServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.RegServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.RegServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.LoginServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>JsonServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.JsonServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.JsonServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>RegValiServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.RegValiServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.RegValiServlet</servlet-class>
   </servlet>
  
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>WelValiServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.WelValiServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.WelValiServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.LogoutServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.LogoutServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>SortServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.SortServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.SortServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>FindServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.FindServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.FindServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>DeleteServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.DeleteServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.DeleteServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>UpdateServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.UpdateServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.UpdateServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>AllFilmServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.AllFilmServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.AllFilmServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>DetailFilmServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.DetailFilmServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.DetailFilmServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>AddFilmServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.AddFilmServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.AddFilmServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>DeleteFilmServlet</servlet-name>
-    <servlet-class>com.coco.wust4CoCo.servlets.DeleteFilmServlet</servlet-class>
+    <servlet-class>com.coco.wust4coco.servlets.DeleteFilmServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SessionServlet</servlet-name>
+    <servlet-class>com.coco.wust4coco.servlets.SessionServlet</servlet-class>
   </servlet>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+ <filter>
+      <filter-name>LoginFilter</filter-name>
+      <filter-class>com.coco.wust4coco.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+      <filter-name>LoginFilter</filter-name>
+      <url-pattern>/index.html*</url-pattern>
+  </filter-mapping>
 
 
   <servlet-mapping>
@@ -161,6 +161,10 @@ version="2.5">
   <servlet-mapping>
     <servlet-name>DeleteFilmServlet</servlet-name>
     <url-pattern>/servlet/DeleteFilmServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SessionServlet</servlet-name>
+    <url-pattern>/servlet/SessionServlet</url-pattern>
   </servlet-mapping>
 
     <welcome-file-list>

@@ -1,7 +1,9 @@
-package com.coco.wust4CoCo.servlets;
+package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -9,11 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.coco.wust4CoCo.beans.JsonResult;
-import com.coco.wust4CoCo.dao.FilmDAO;
 import com.google.gson.Gson;
+import com.coco.wust4coco.beans.User;
+import com.coco.wust4coco.dao.UserDAO;
 
-public class DeleteFilmServlet extends HttpServlet {
+public class FindServlet extends HttpServlet {
 
 	/**
 	 * The doPost method of the servlet. <br>
@@ -28,26 +30,31 @@ public class DeleteFilmServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int movieid=Integer.parseInt(request.getParameter("movieid"));
-		FilmDAO filmdao=new FilmDAO();
-		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
-		JsonResult jr=new JsonResult();
-		boolean flag=filmdao.deletemovie(movieid);
-		if(flag)
+		int id=Integer.parseInt(request.getParameter("id"));
+		UserDAO userdao=new UserDAO();
+		ArrayList<User> list=new ArrayList<User>();
+		ResultSet rs=userdao.findUserfromid(id);
+		if(rs!=null)
 		{
-			jr.setString("success");
-			jr.setStatus(0);
-		}
-		else{
-			jr.setString("fail");
-			jr.setStatus(-1);
+			try {
+				if(rs.next())
+				{
+					User user=new User();
+					user.setId(Integer.parseInt(rs.getString("id")));
+					user.setUsername(rs.getString("username"));
+					user.setPassword(rs.getString("password"));
+					list.add(user);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		Gson gb = new Gson();
-		result.add(jr);
-		String info=gb.toJson(result);
+		String info=gb.toJson(list);
 		response.getWriter().append(info);
+		
 	}
-	
 
 }

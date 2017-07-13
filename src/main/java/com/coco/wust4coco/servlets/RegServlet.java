@@ -1,4 +1,4 @@
-package com.coco.wust4CoCo.servlets;
+package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-
-import com.coco.wust4CoCo.dao.UserDAO;
-import com.coco.wust4CoCo.beans.JsonResult;
-import com.coco.wust4CoCo.beans.User;
+import com.coco.wust4coco.beans.JsonResult;
+import com.coco.wust4coco.beans.User;
+import com.coco.wust4coco.dao.UserDAO;
 
 public class RegServlet extends HttpServlet{
 	/**

@@ -236,7 +236,7 @@ function wsort(d1)
         		{
         		var string="";
         	 	string+="<table class='table_order'>";
-        	 	string+="<tr><th>UserId</th><th>Username</th><th>Paaword</th></tr>";
+        	 	string+="<tr><th>UserId</th><th>Username</th><th>Password</th></tr>";
         		for(var obj in o)
         			{
         			string+="<tr>";
@@ -256,7 +256,7 @@ function wsort(d1)
         	else{
         	var string="";
     	 	string+="<table class='table_order'>";
-    	 	string+="<tr><th>UserId</th><th>Username</th><th>Paaword</th></tr>";
+    	 	string+="<tr><th>UserId</th><th>Username</th><th>Password</th></tr>";
 
     	 		for( i,l;i<l;i++)
     	 			{

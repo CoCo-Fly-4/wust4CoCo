@@ -12,9 +12,9 @@
 <script type="text/javascript" src="js/jquery-func.js"></script>
 <script type="text/javascript" src="js/authorize.js"></script>
 <script>
-
-     var username=GetQueryString("username");
-     autho1();
+     
+      /*var username=GetQueryString("username");
+     autho1(); */
 ////////////////////////       权限验证      / ////////////////////////
 	     
  </script>
@@ -499,15 +499,15 @@
 	
 	<script>
 	
-	 
-             if(username==null){
-             document.getElementById("info").innerHTML="<font size='3' color='black'>您还未登录！</font>";
-	         
-	         }
-	         else{
-	         document.getElementById("info").innerHTML="<font size='3'>"+username+" ， 您已登录 <a href='javascript:logout()'>注销</a></font>";
+	
+	         var username=GetQueryString("username");
+	         if(username==null||username==undefined||username=="null")
+	         document.getElementById("info").innerHTML="<font size='3' color='black'>您还未登录！</font>";
+	        else 
 	      
-	         }
+	           getsession();
+	           
+	         
 	</script>
 	
 	

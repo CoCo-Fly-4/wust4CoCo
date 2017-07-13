@@ -1,4 +1,4 @@
-package com.coco.wust4CoCo.servlets;
+package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -11,9 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-
-import com.coco.wust4CoCo.beans.JsonResult;
-import com.coco.wust4CoCo.dao.UserDAO;
+import com.coco.wust4coco.beans.JsonResult;
+import com.coco.wust4coco.dao.UserDAO;
 
 public class LoginServlet extends HttpServlet{
 	/**
@@ -37,19 +36,18 @@ public class LoginServlet extends HttpServlet{
 			
 			boolean flag=userdao.findUser(username, password);
 			if( flag ) {
-				if(username.equals("cocoadmin")&&password.equals("cocoadmin"))
-				{
-					jr.setString("admin");
+			
+					jr.setString("success");
 				    jr.setStatus(0);
-				    System.out.println("jr=admin");
+				    System.out.println("jr=success");
 				}
 				else{
-				jr.setString("success");
-				jr.setStatus(0);
-				System.out.println("jr=success");
+				jr.setString("fail");
+				jr.setStatus(-1);
+				System.out.println("jr=fail");
 				}
 				request.getSession().setAttribute("username", username);
-				}
+				
 			Gson gb = new Gson();
 			result.add(jr);
 			String info=gb.toJson(result);

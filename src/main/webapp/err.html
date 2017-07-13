@@ -9,6 +9,7 @@
     
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/authorize.js"></script>
   </head>
   
   <body>
@@ -19,11 +20,12 @@
     <img src="images/access.jpg"/>
     </div>
     <script>
-    
+     
+     
     setTimeout(logout,3000); 
     function logout()
     {
-    window.location.href="index.html";
+    window.location.href="index.html?username="+real;
     
     }
     

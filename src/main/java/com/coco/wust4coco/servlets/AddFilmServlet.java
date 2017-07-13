@@ -1,4 +1,4 @@
-package com.coco.wust4CoCo.servlets;
+package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.coco.wust4coco.beans.Film;
+import com.coco.wust4coco.beans.JsonResult;
+import com.coco.wust4coco.dao.FilmDAO;
 import com.google.gson.Gson;
 
-import com.coco.wust4CoCo.beans.JsonResult;
-
-public class LogoutServlet extends HttpServlet {
+public class AddFilmServlet extends HttpServlet {
 
 	/**
 	 * The doPost method of the servlet. <br>
@@ -28,22 +29,32 @@ public class LogoutServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setCharacterEncoding("UTF-8");
-		String username=(String)request.getSession().getAttribute("username");
-		System.out.println("before session: "+username);
-		request.getSession().setAttribute("username", "null");
-		String username2=(String)request.getSession().getAttribute("username");
-		System.out.println("after session: "+username2);
-        ArrayList<JsonResult> result=new ArrayList<JsonResult>();	
+		String moviename=request.getParameter("newname");
+		String classify=request.getParameter("newclassify");
+		String newactor=request.getParameter("newactor");
+		String newaddress=request.getParameter("newaddress");
+		String newurl=request.getParameter("newurl");
+		String newintro=request.getParameter("newintro");
+		
+		FilmDAO filmdao=new FilmDAO();
+		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
 		JsonResult jr=new JsonResult();
-		jr.setString("success");
-		jr.setStatus(0);
+		boolean flag=filmdao.addmovie(moviename, classify, newactor, newaddress, newurl, newintro);
+		
+		if(flag)
+		{
+			jr.setString("success");
+			jr.setStatus(0);
+		}
+		else{
+			jr.setString("fail");
+			jr.setStatus(-1);
+		}
+		
 		Gson gb = new Gson();
 		result.add(jr);
 		String info=gb.toJson(result);
 		response.getWriter().append(info);
-		
-		
 	}
 
 }
