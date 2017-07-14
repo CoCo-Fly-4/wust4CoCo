@@ -1,9 +1,9 @@
 package com.coco.wust4coco.beans;
 
 public class User {
-	int id;
-	String username;
-	String password;
+	int id;                        //用户id
+	String username;               //用户名
+	String password;                //用户密码
 	
 	
 	public int getId() {

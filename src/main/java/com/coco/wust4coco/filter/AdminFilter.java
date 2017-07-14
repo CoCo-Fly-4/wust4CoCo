@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class AdminFilter implements Filter {
+public class AdminFilter implements Filter {     //管理员页面过滤器
 
 	@Override
 	public void destroy() {
@@ -27,11 +27,12 @@ public class AdminFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest)arg0;
         HttpServletResponse resp =(HttpServletResponse) arg1;
         HttpSession session = req.getSession();
-        
+        String path = req.getRequestURI();
 		String Path=req.getContextPath();
-		
+		System.out.println("admin: request="+path);
         
         String username = (String) session.getAttribute("username");
+        System.out.println("Admin: session="+username);
         if(null!=username&&username.equals("cocoadmin"))
         	arg2.doFilter(req, resp);
         else

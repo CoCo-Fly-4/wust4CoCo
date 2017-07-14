@@ -15,20 +15,13 @@ import com.coco.wust4coco.beans.JsonResult;
 public class WelValiServlet extends HttpServlet {
 
 	/**
-	 * 
+	 *    自定义权限验证，已被Filter取代
+	 *    自定义权限验证，已被Filter取代
+	 *    
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The doGet method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to get.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String username1=request.getParameter("username");
@@ -64,10 +57,7 @@ public class WelValiServlet extends HttpServlet {
 			else{
 			jr.setPdata(username2);
 			jr.setString("index?");
-			jr.setStatus(0);
-			System.out.println("进入情况3");
-			System.out.println("进入情况3:"+username2);
-			System.out.println("4~");
+			jr.setStatus(0);			
 			}
 		}
 		
@@ -92,9 +82,6 @@ public class WelValiServlet extends HttpServlet {
 		    System.out.println("7~");
 			}
 		}
-		
-		
-		
 		Gson gb = new Gson();
 		result.add(jr);
 		String info=gb.toJson(result);

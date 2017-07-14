@@ -15,7 +15,7 @@ import com.coco.wust4coco.dao.UserDAO;
 
 public class LoginServlet extends HttpServlet{
 	/**
-	 * 
+	 *          用户登录Servlet
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -24,38 +24,25 @@ public class LoginServlet extends HttpServlet{
 			String username=request.getParameter("username");
 			String password=request.getParameter("password");
 			
-			System.out.println("进入LoginServlet");
-			System.out.println("in loginservlet:");
-			System.out.println("username="+username);
-			
-			
 			UserDAO userdao=new UserDAO();
 			ArrayList<JsonResult> result=new ArrayList<JsonResult>();
 			JsonResult jr=new JsonResult();
 			
 			boolean flag=userdao.findUser(username, password);
 			if( flag ) {		
-				   if(username.equals("cocoadmin"))
-				   {
-					   jr.setString("admin");
-					    jr.setStatus(0);
-					    System.out.println("jr=admin");
-				   }
-				   else{
+				                             //普通用户
 					jr.setString("success");
 				    jr.setStatus(0);
 				    System.out.println("jr=success");
-				   }
+				 
 				    request.getSession().setAttribute("username", username);
 				}
-				else{
+				else{                                   //登录失败
 				jr.setString("fail");
 				jr.setStatus(-1);
 				System.out.println("jr=fail");
 				request.getSession().setAttribute("username", "null");
-				}
-				
-				
+				}			
 			Gson gb = new Gson();
 			result.add(jr);
 			String info=gb.toJson(result);

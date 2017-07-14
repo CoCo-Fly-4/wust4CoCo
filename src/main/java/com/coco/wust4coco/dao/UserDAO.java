@@ -9,14 +9,16 @@ public class UserDAO {
 	public static final String DRIVER = "com.mysql.jdbc.Driver";
 	public static final String DBURL = "jdbc:mysql://localhost:3306/coco";
 	public static final String DBURL2 = "jdbc:mysql://localhost:3306/mobiledb";
-	public static final String DBUSER = "root";
-	public static final String DBPASS = "admin";
-
+	public static final String DBUSER = "root";        //数据库用户名
+	public static final String DBPASS = "admin";       //数据库密码
+                  /*简单的JDBC模式下，上两项可能要作出更改*/
+	
+	
 	private Connection conn = null;
 	private PreparedStatement pStat = null;
 	private ResultSet rs = null;
 
-	public Connection getConnectionn() {
+	public Connection getConnectionn() {       //连接数据库
 		try {
 			Class.forName(DRIVER).newInstance();
 			return DriverManager.getConnection(DBURL, DBUSER, DBPASS);
@@ -27,18 +29,7 @@ public class UserDAO {
 		}
 	}
 	
-	public Connection getConnectionn2() {
-		try {
-			Class.forName(DRIVER).newInstance();
-			return DriverManager.getConnection(DBURL2, DBUSER, DBPASS);
-		} catch (Exception e) {
-			System.out.println("连接错误！");
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	public void close() {
+	public void close() {                      //关闭数据库
 		try {
 			if (rs != null)
 				rs.close();
@@ -51,8 +42,8 @@ public class UserDAO {
 		}
 	} // end close
 
-	public boolean isUsernameExists(String username) {
-
+	public boolean isUsernameExists(String username) {  
+		                                         //指定用户是否存在
 		conn = getConnectionn();
 		try {
 			pStat = conn
@@ -73,7 +64,7 @@ public class UserDAO {
 
 		} // end isUsernameExists
 	}
-	public ResultSet findUserfromid(int id) {
+	public ResultSet findUserfromid(int id) {      //查找指定ID用户
 		conn = getConnectionn();
 		try{
 			pStat = conn.prepareStatement("select * from user where id=?");
@@ -95,7 +86,7 @@ public class UserDAO {
 		
 	}
 	public boolean findUser(String username, String password) {
-		conn = getConnectionn();
+		conn = getConnectionn();      // 通过用户名和密码查找用户
 		try {
 			pStat = conn
 					.prepareStatement("select * from user where username=? and password=?");
@@ -115,7 +106,7 @@ public class UserDAO {
 		}
 	} // end findUser
 
-	public boolean addUser(User user) {
+	public boolean addUser(User user) {     //添加用户
 
 		conn = getConnectionn();
 		try {
@@ -135,7 +126,7 @@ public class UserDAO {
 		}
 	} // end addUser
 	
-	public ResultSet alluser() {
+	public ResultSet alluser() {      //查询所有用户信息
 		
 		conn = getConnectionn();
 		try {
@@ -154,7 +145,7 @@ public class UserDAO {
 		}
 	}
 	
-	public boolean update(User user,String name){
+	public boolean update(User user,String name){   //更新用户信息
 		conn=getConnectionn();
 		try{
 			pStat=conn.prepareStatement("update user set username=?,password=? where username=?");
@@ -175,7 +166,7 @@ public class UserDAO {
 	}//end update
 	
 	public boolean updatebyid(int id,int id_,String name,String password){
-		conn=getConnectionn();
+		conn=getConnectionn();             //更新指定id用户
 		try{
 			pStat=conn.prepareStatement("update user set id=?,username=?,password=? where id=?");
 		    pStat.setInt(1,id_);
@@ -195,7 +186,7 @@ public class UserDAO {
 		}
 	}//end update
 	
-	public boolean delete(int id){
+	public boolean delete(int id){           //删除指定id用户
 		conn=getConnectionn();
 		try{
 			pStat=conn.prepareStatement("delete from user where id=?");
@@ -213,7 +204,7 @@ public class UserDAO {
 		}
 	}
 	public int findid(String username, String password)
-	{
+	{                                     //查找用户id
 		conn = getConnectionn();
 		try {
 			pStat = conn
@@ -235,7 +226,7 @@ public class UserDAO {
 	}
 	
 public ResultSet findbyword(String s1,String s2) {
-	System.out.println(s1+" "+s2);
+	System.out.println(s1+" "+s2);             //用户名字母排序
 		conn = getConnectionn();
 		try {
 		pStat = conn.prepareStatement("select * from user where username>=? and username<=?");
@@ -259,37 +250,6 @@ public ResultSet findbyword(String s1,String s2) {
 		}
 	}
 	
-//	public ResultSet search(String singer,String song) {
-//		conn=getConnectionn2();
-//		try{
-//			pStat=conn.prepareStatement("select * from music where singer=?");
-//			pStat.setString(1, singer);
-//			rs = pStat.executeQuery();
-//			if (rs.next())
-//			{
-//				return rs;
-//			}
-//			else
-//			{
-//				System.out.println("Search for Singer null");
-//				pStat=conn.prepareStatement("select * from music where song=?");
-//			pStat.setString(1, song);
-//			rs = pStat.executeQuery();
-//			if(rs.next())
-//			return rs;
-//			else
-//			{
-//				System.out.println("Search for Song null");
-//				return null;
-//			}
-//			}
-//		}catch (Exception e) {
-//			System.out.println("MUSIC错误！");
-//			return null;
-//		} finally {
-//			
-//		}
-//			
-//		}
+
 } // end class
 

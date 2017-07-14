@@ -1,7 +1,7 @@
 package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -16,21 +16,11 @@ import com.coco.wust4coco.dao.UserDAO;
 public class RegValiServlet extends HttpServlet {
 
 	/**
-	 * 
+	 *           注册  用户名重复验证
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The doGet method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to get.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
-	
+
 	public RegValiServlet() {
 	       super();
 	   }
@@ -41,35 +31,21 @@ public class RegValiServlet extends HttpServlet {
 		
 	}
 
-	/**
-	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
    
 		
 		response.setCharacterEncoding("UTF-8");
 		String username=request.getParameter("username");
-		
-		System.out.println(username);
-		
-		
+
 		UserDAO userdao=new UserDAO();
-		
-	
-		
+
 		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
 		
 		JsonResult jr=new JsonResult();
 	/*	StringBuilder sb = new StringBuilder();*/
-		if( userdao.isUsernameExists(username) ){	
+		if( userdao.isUsernameExists(username) ){	//指定用户是否存在
 	    	
 	    	jr.setString("fail");
 	    	jr.setStatus(-1);

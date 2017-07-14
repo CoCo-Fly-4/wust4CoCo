@@ -1,7 +1,7 @@
 package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,15 +18,10 @@ import com.google.gson.Gson;
 public class DetailFilmServlet extends HttpServlet {
 
 	/**
-	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 *               查询指定ID的影视详情信息
 	 */
+	private static final long serialVersionUID = 1L;
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -40,7 +35,7 @@ public class DetailFilmServlet extends HttpServlet {
 		if(rs!=null)
 		{
 			try {
-				if(rs.next())
+				if(rs.next())               //对查询结果集进行遍历
 				{
 					Film film=new Film();
 					film.setMovieid(Integer.parseInt(rs.getString("movieid")));

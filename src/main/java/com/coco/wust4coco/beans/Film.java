@@ -2,13 +2,13 @@ package com.coco.wust4coco.beans;
 
 public class Film {
 
-	private int movieid;
-	private String moviename;
-	private String classify;
-	private String actor;
-	private String address;
-	private String imgurl;
-	private String introduction;
+	private int movieid;                 //影视id
+	private String moviename;            //影视名称
+	private String classify;             //影视分类
+	private String actor;                //主演
+	private String address;              //影视播放地址
+	private String imgurl;                //影视图片链接
+	private String introduction;           //影视简介
 
 	public int getMovieid() {
 		return movieid;

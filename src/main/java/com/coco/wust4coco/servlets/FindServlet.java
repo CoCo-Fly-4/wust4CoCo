@@ -1,7 +1,7 @@
 package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,15 +18,11 @@ import com.coco.wust4coco.dao.UserDAO;
 public class FindServlet extends HttpServlet {
 
 	/**
-	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 *            查找指定ID的用户Servlet
 	 */
+	private static final long serialVersionUID = 1L;
+
+	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -37,8 +33,8 @@ public class FindServlet extends HttpServlet {
 		if(rs!=null)
 		{
 			try {
-				if(rs.next())
-				{
+				if(rs.next())             //结果只有一个
+				{        
 					User user=new User();
 					user.setId(Integer.parseInt(rs.getString("id")));
 					user.setUsername(rs.getString("username"));
