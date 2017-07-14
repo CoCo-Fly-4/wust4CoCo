@@ -89,7 +89,7 @@ function pagedown(h)
 	
 	$.ajax({  
 		 type: "POST",  
-		 url: "http://127.0.0.1:8080/wust4CoCo/servlet/AllFilmServlet",  
+		 url: "/wust4CoCo/servlet/AllFilmServlet",  
 		 data: $('#form').serialize(),  
 		 success: function(data){    	
 		 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
@@ -122,7 +122,7 @@ function detail(movieid)
 	
 	$.ajax({  
 		 type: "POST",  
-		 url: "http://127.0.0.1:8080/wust4CoCo/servlet/DetailFilmServlet?movieid="+movieid,  
+		 url: "/wust4CoCo/servlet/DetailFilmServlet?movieid="+movieid,  
 		 data: $('#form').serialize(),  
 		 success: function(data){    	
 		 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
@@ -167,7 +167,7 @@ function adduser()
 	
 	$.ajax({  
 		 type: "POST",  
-		 url: "http://127.0.0.1:8080/wust4CoCo/servlet/AddFilmServlet",  
+		 url: "/wust4CoCo/servlet/AddFilmServlet",  
 		 data: "newname="+$('#new_name').val()+"&newclassify="+$('#new_classify').val()+"&newactor="+$('#new_actor').val()+"&newaddress="+$('#new_address').val()+"&newurl="+$('#new_imgurl').val()+"&newintro="+$('#new_intro').val(),  
 		 success: function(data){    
 			 $('#addform')[0].reset();
@@ -230,7 +230,7 @@ function deletemovie(id)
 {
 	$.ajax({  
 		 type: "POST",  
-		 url: "http://127.0.0.1:8080/wust4CoCo/servlet/DeleteFilmServlet",  
+		 url: "/wust4CoCo/servlet/DeleteFilmServlet",  
 		 data:"movieid="+id,  
 		 success: function(data){    
 			 

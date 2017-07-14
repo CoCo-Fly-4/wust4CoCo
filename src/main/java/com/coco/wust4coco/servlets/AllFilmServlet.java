@@ -1,7 +1,7 @@
 package com.coco.wust4coco.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,19 +19,15 @@ import com.google.gson.Gson;
 public class AllFilmServlet extends HttpServlet {
 
 	/**
-	 * The doGet method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to get.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 *             查询所有影视Servlet
 	 */
+	private static final long serialVersionUID = 1L;
+
+	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");    //设置字符编码为utf-8
 		FilmDAO filmdao=new FilmDAO();
 		ArrayList<Film> list=new ArrayList<Film>();
 		ResultSet rs=filmdao.allfilm();
@@ -39,7 +35,7 @@ public class AllFilmServlet extends HttpServlet {
 		if(rs!=null)
 		{
 			try {
-				while(rs.next())
+				while(rs.next())        //对结果集进行遍历
 				{
 					Film film=new Film();
 					film.setMovieid(Integer.parseInt(rs.getString("movieid")));
@@ -50,7 +46,7 @@ public class AllFilmServlet extends HttpServlet {
 					film.setImgurl(rs.getString("imgurl"));
 					film.setIntroduction(rs.getString("introduction"));
 					System.out.println("moviename:"+rs.getString("moviename"));
-					list.add(film);
+					list.add(film);   //添加到list
 					
 				}
 			} catch (NumberFormatException e) {
@@ -63,8 +59,8 @@ public class AllFilmServlet extends HttpServlet {
 			
 		}
 		
-		Gson gb = new Gson();
-		String info=gb.toJson(list);
+		Gson gb = new Gson();        
+		String info=gb.toJson(list);         //将查询结果转化为Json集 并返回
 		response.getWriter().append(info);
 	}
 

@@ -15,7 +15,7 @@ import com.coco.wust4coco.dao.UserDAO;
 
 public class RegServlet extends HttpServlet{
 	/**
-	 * 
+	 *            用户注册Servlet         
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -26,11 +26,10 @@ public class RegServlet extends HttpServlet{
 			//response.setContentType("text/html");
 			String username=request.getParameter("username");
 			String password=request.getParameter("password");
-			System.out.println("username:"+username);
-			System.out.println("password:"+password);
+			
 		
 			User user=new User();
-			user.setUsername(username);
+			user.setUsername(username);  //对User进行封装
 			user.setPassword(password);
 			UserDAO userdao=new UserDAO();
 			
@@ -39,13 +38,13 @@ public class RegServlet extends HttpServlet{
 			
 			boolean flag=userdao.addUser(user);
 			
-			if(flag){
+			if(flag){                           // 注册成功
 				jr.setString("success");
 				jr.setStatus(0);
 			/*request.getSession().setAttribute("username", username);*/
 			}
 			else
-			{
+			{                                  // 注册失败
 				jr.setString("fail");
 		    	jr.setStatus(-1);
 			}

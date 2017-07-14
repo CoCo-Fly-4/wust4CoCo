@@ -4,13 +4,11 @@ var cur;
 
 function adduser()
 {
-	var username=document.getElementById("newusername").value;
-	var password=document.getElementById("newpassword").value;
-	
+
 	$.ajax({  
 		 type: "POST",  
-		 url: "http://127.0.0.1:8080/wust4CoCo/servlet/RegServlet?username="+username+"&password="+password,  
-		 data: $('#form').serialize(),  
+		 url: "/wust4CoCo/servlet/RegServlet",  
+		 data: "username="+$('#newusername').val()+"&password="+$('#newpassword').val(),  
 		 success: function(data){    	
 		 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
 		 if(obj[0].string=="success"&&obj[0].status==0)
@@ -20,18 +18,18 @@ function adduser()
          }  
  })  ;
 }
-
+var id;
 function showinfo(num)
 {
-	var id;
+	
 	if(num==2)
 	 id=document.getElementById("delete_id").value;
 	if(num==1)
 	 id=document.getElementById("number").value;
 	$.ajax({  
 		 type: "POST",  
-		 url: "http://127.0.0.1:8080/wust4CoCo/servlet/FindServlet?id="+id,  
-		 data: $('#form').serialize(),  
+		 url: "/wust4CoCo/servlet/FindServlet",  
+		 data: "id="+id,  
 		 success: function(data){    	
 		 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
 		 if(num==2){
@@ -79,11 +77,11 @@ function dish()
 
 function deleteuser()
 {
-	var id=document.getElementById("delete_id").value;
+	
 	$.ajax({  
 		 type: "POST",  
-		 url: "http://127.0.0.1:8080/wust4CoCo/servlet/DeleteServlet?id="+id,  
-		 data: $('#form').serialize(),  
+		 url: "/wust4CoCo/servlet/DeleteServlet",  
+		 data: "id="+$('#delete_id').val(),  
 		 success: function(data){    	
 		 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
 		 if(obj[0].string=="success"&&obj[0].status==0)
@@ -105,14 +103,11 @@ function deleteuser()
 
 function updateuser()
 {
-	var id=document.getElementById("number").value;
-	var newid=document.getElementById("ddd").value;
-	var newname=document.getElementById("nnn").value;
-	var newpass=document.getElementById("ppp").value;
+	
 	$.ajax({  
 		 type: "POST",  
-		 url: "http://127.0.0.1:8080/wust4CoCo/servlet/UpdateServlet?id="+id+"&newid="+newid+"&newname="+newname+"&newpass="+newpass,  
-		 data: $('#form').serialize(),  
+		 url: "/wust4CoCo/servlet/UpdateServlet",  
+		 data: "id="+$('#number').val()+"&newid="+$('#ddd').val()+"&newname="+$('#nnn').val()+"&newpass="+$('#ppp').val(),  
 		 success: function(data){    	
 		 var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
 		 if(obj[0].string=="success"&&obj[0].status==0)
@@ -198,7 +193,7 @@ function page(s) {
 	
 	$.ajax({  
         type: "POST",  
-        url: "http://127.0.0.1:8080/wust4CoCo/servlet/SortServlet?word="+d1,  
+        url: "/wust4CoCo/servlet/SortServlet?word="+d1,  
         data: $('#form').serialize(),  
         success: function success(data){    	
         	var o = JSON.parse(data);
@@ -228,7 +223,7 @@ function wsort(d1)
 	i=0;l=5;cur=1;
 	$.ajax({  
         type: "POST",  
-        url: "http://127.0.0.1:8080/wust4CoCo/servlet/SortServlet?word="+d1,  
+        url: "/wust4CoCo/servlet/SortServlet?word="+d1,  
         data: $('#form').serialize(),  
         success: function success(data){    	
         	var o = JSON.parse(data);

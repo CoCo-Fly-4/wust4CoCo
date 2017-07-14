@@ -1,10 +1,10 @@
 package com.coco.wust4coco.beans;
 
-public class JsonResult{
+public class JsonResult{            
 	
-	private String string ;
-	private int status;
-	private String Pdata;
+	private String string ;          //自定义Json返回字符串
+	private int status;              //自定义Json返回状态
+	private String Pdata;            //自定义Json返回数据
 	
 	public String getPdata() {
 		return Pdata;

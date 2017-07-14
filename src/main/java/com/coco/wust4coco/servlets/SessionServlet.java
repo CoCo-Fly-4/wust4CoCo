@@ -15,32 +15,24 @@ import com.google.gson.Gson;
 public class SessionServlet extends HttpServlet {
 
 	/**
-	 * 
+	 *         返回Session值和项目地址
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String session=(String)request.getSession().getAttribute("username");
-		System.out.println("SessionSservlet:---"+session);
+		String Apath=request.getContextPath();
 		ArrayList<JsonResult> result=new ArrayList<JsonResult>();
 		JsonResult jr=new JsonResult();
-		jr.setPdata(session);
-		jr.setStatus(0);
+		jr.setString(Apath);          //加入项目路径
+		jr.setPdata(session);         //加入session中的用户标志
+		jr.setStatus(0);              //设置状态字
 		Gson gb = new Gson();
 		result.add(jr);
-		String info=gb.toJson(result);
+		String info=gb.toJson(result);          //转化为Json 返回
 		response.getWriter().append(info);
 	}
 
